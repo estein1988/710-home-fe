@@ -45,7 +45,6 @@ export default class Login extends Component {
                             <button class="ui primary button" type='submit' id='submit' value='Login'>
                                 Login
                             </button>
-
                         </div>
                     </form>
                 </div>

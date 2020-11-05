@@ -9,18 +9,18 @@ class MortageRates extends Component {
         zipCode: 80202,
         calculator: [],
         calculator_split: [],
-        hoi: 140,
+        hoi: 180,
         tax_rate: 2.2485,
-        down_payment: 10000,
+        down_payment: 20000,
         price: 410000,
         term: 30,
         rate: 2.967,
-        hoi_split: 70,
-        tax_rate_split: 2.2485,
-        down_payment_split: 30000,
+        hoi_split: 90,
+        tax_rate_split: 2.0,
+        down_payment_split: 82000,
         price_split: 410000,
         term_split: 30,
-        rate_split: 2.967
+        rate_split: 2.75
     }
 
     componentDidMount(){
@@ -81,7 +81,6 @@ class MortageRates extends Component {
         .then(result => this.setState({calculator_split: result.mortgage}))
     }
 
-
     render() {
         return (
             <div>
@@ -95,33 +94,18 @@ class MortageRates extends Component {
                     <Link to='/'>Home</Link>
                 </div>
                 <div className="header item">
-                    <i className="home icon"></i>
-                    <Link to='/rates'>Mortgage Rates</Link>
+                    <i className="calculator icon"></i>
+                    <Link to='/rates'>Mortgage Calculator</Link>
                 </div>
                 <div className="header item">
-                    <i className="home icon"></i>
+                    <i className="user icon"></i>
                     <Link to='/profile'>My Profile</Link>
                 </div>
 
             </div>
-
-                <div class="ui two column centered grid">
-                    <div className="LatLongSearch">        
-                        <form className="ui form" onSubmit={this.handleSubmit}>
-                            <div className="field">
-                            <input type="number" name="zipCode" value={this.state.zipCode} onChange={this.handleChange} />
-                        </div>
-                            <input className="ui black button" type="submit" value="Lookup Current Rates"/>
-                        </form>
-                    </div>
-                </div>
-                    <h2>10-year: {this.state.mortgageRates.average_rate_10_year}</h2> 
-                    <h2>15-year: {this.state.mortgageRates.average_rate_15_year}</h2> 
-                    <h2>20-year: {this.state.mortgageRates.average_rate_20_year}</h2> 
-                    <h2>30-year: {this.state.mortgageRates.average_rate_30_year}</h2> 
                 
-                <div className="calculator-container">
-                    <div class="ui two column centered grid">
+                <div class="ui centered grid">
+                    <div class="three wide column">
                         <div className="individual-calculator">        
                             <form className="ui form" onSubmit={this.handleSubmit}>
 
@@ -157,11 +141,12 @@ class MortageRates extends Component {
 
                                 <input className="ui black button" type="submit" value="Calculate Payments"/>
                             </form>
+                        </div>
+                        <h3>Monthly Payment On Your Own: ${this.state.calculator.monthly_payment}</h3>
+                        <h3>Suggested Income: ${this.state.calculator.monthly_payment * 12 * 3}</h3>
                     </div>
-                </div>
-                    <h2>Monthly Payment On Your Own: ${this.state.calculator.monthly_payment}</h2>
                 
-                    <div class="ui two column centered grid">
+                    <div class="three wide column">
                         <div className="split-calculator">        
                             <form className="ui form" onSubmit={this.handleSubmit}>
                                 <div className="field">
@@ -175,7 +160,7 @@ class MortageRates extends Component {
                                 </div>
 
                                 <div className="field">
-                                    <label>Your Cont. Down Payment</label>
+                                    <label>2x Down Payment</label>
                                     <input type="number" name="down_payment_split" value={this.state.down_payment_split} onChange={this.handleChange} />
                                 </div>
 
@@ -197,9 +182,26 @@ class MortageRates extends Component {
                                 <input className="ui black button" type="submit" value="Calculate Split Payments"/>
                             </form>
                     </div>
+                    <h3>Monthly Payment 710 Split: ${this.state.calculator_split.monthly_payment / 2 }</h3>
+                    <h3>Suggested Income: ${this.state.calculator_split.monthly_payment * 12 * 3}</h3>
                 </div>
-                    <h2>Monthly Payment 710 Split: ${this.state.calculator_split.monthly_payment / 2 }</h2>
+                    
                 </div>
+
+                <div class="ui two column centered grid">
+                    <div className="mortgage-rates">        
+                        <form className="ui form" onSubmit={this.handleSubmit}>
+                            <div className="field">
+                            <input type="number" name="zipCode" value={this.state.zipCode} onChange={this.handleChange} />
+                        </div>
+                            <input className="ui black button" type="submit" value="Lookup Current Rates"/>
+                        </form>
+                    </div>
+                </div>
+                    <h4>10-year: {this.state.mortgageRates.average_rate_10_year}</h4> 
+                    <h4>15-year: {this.state.mortgageRates.average_rate_15_year}</h4> 
+                    <h4>20-year: {this.state.mortgageRates.average_rate_20_year}</h4> 
+                    <h4>30-year: {this.state.mortgageRates.average_rate_30_year}</h4> 
             </div>
         )
     }

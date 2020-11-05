@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PrivateRoute from './components/PrivateRoute'
 import Login from './components/Login'
 import MortgageRates from './components/MortgageRates'
+import ProfilePage from './components/ProfilePage'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import './App.css';
 
@@ -59,20 +60,39 @@ class App extends Component {
     }
   }
 
+  // addToFavorites = (home, user) => {
+  //   fetch(`${favoritesURL}/`, {
+  //     method:'POST',
+  //     headers: {
+  //       'Authorization': `Bearer ${localStorage.token}`,
+  //       'Accept': 'application/json',
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify(
+  //         {home: home.id, user: user.id}
+  //     )
+  //   })
+  //   .then(response => response.json())
+  //   .then(favorite => this.setState({favorites: [...this.state.favorites, favorite]}))
+  // }
+
   addToFavorites = (home, user) => {
-    fetch(`${favoritesURL}/`, {
-      method:'POST',
-      headers: {
-        'Authorization': `Bearer ${localStorage.token}`,
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(
-          {home: home.id, user: user.id}
-      )
+    const favorite = {home: home.id, user: user.id}
+    this.setState({
+      favorites: [...this.state.favorites, favorite],
+      allHomes: [...this.state.allHomes, home]
     })
-    .then(response => response.json())
-    .then(favorite => this.setState({favorites: [...this.state.favorites, favorite]}))
+      fetch(`${favoritesURL}/`, {
+        method:'POST',
+        headers: {
+          'Authorization': `Bearer ${localStorage.token}`,
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(
+            {home: home.id, user: user.id}
+        )
+      })
   }
 
   login = (user) => {
@@ -107,7 +127,10 @@ class App extends Component {
         </Route>
 
         <Route path='/profile'>
-          <MortgageRates />
+          <ProfilePage 
+            user={this.state.user} 
+            allHomes={this.state.allHomes} 
+            favorites={this.state.favorites} />
         </Route>
 
         <Route 

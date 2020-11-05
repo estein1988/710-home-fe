@@ -86,7 +86,6 @@ export default function HouseCard({home, user, clickAction, favorites, deleteFav
             />
         )
         
-
         return (
             <Card className={classes.root}>
             <CardActionArea>
