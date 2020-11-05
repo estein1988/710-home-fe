@@ -129,7 +129,7 @@ export default function HouseCard({home, user, clickAction, favorites, deleteFav
                     </div>
                 <div>
                 <button type="button" onClick={handleOpen}>
-                    Additonal User Info.
+                    Additonal Favorite Info.
                 </button>
                 <Modal
                     open={open}
@@ -141,7 +141,7 @@ export default function HouseCard({home, user, clickAction, favorites, deleteFav
                     <h2 id="simple-modal-title">{home.street} has been favorited by:</h2>
                         <p id="simple-modal-description">
                             {home.users.map(user => 
-                                `${user.username} (${user.email})`).join(', ')}<br></br>
+                                `${user.username}: (${user.email})`).join(', ')}<br></br>
                         </p>
                 </div>
                 </Modal>
