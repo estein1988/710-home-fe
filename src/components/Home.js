@@ -6,8 +6,8 @@ import 'semantic-ui-css/semantic.min.css'
 
 export default class Home extends Component {
     render(){
-
         return(
+
             <div>
 
                 <div className="ui inverted blue secondary pointing menu">
@@ -28,7 +28,13 @@ export default class Home extends Component {
                     </div>
                 </div>
                 
-            <div>
+                <div className="googleMap">
+                    <GoogleMap 
+                            allHomes={this.props.allHomes} 
+                    />
+                </div>
+
+
                 <CardsContainer 
                     allHomes={this.props.allHomes} 
                     user={this.props.user} 
@@ -36,13 +42,7 @@ export default class Home extends Component {
                     clickAction={this.props.clickAction}
                     deleteFavorite={this.props.deleteFavorite}
                 />
-            </div>
 
-            <div className="googleMap">
-                <GoogleMap 
-                    allHomes={this.props.allHomes} 
-                />
-            </div>
 
             </div>
         )

@@ -1,5 +1,6 @@
 import React from 'react';
 import UserCard from './UserCard'
+import UserModal from './UserModal'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -141,7 +142,11 @@ export default function HouseCard({home, user, clickAction, favorites, deleteFav
                     <h2 id="simple-modal-title">{home.street} has been favorited by:</h2>
                         <p id="simple-modal-description">
                             {home.users.map(user => 
-                                `${user.username}: (${user.email})`).join(', ')}<br></br>
+                                <UserModal
+                                    key={user.id}
+                                    user={user}
+                                />
+                            )}
                         </p>
                 </div>
                 </Modal>
@@ -152,3 +157,6 @@ export default function HouseCard({home, user, clickAction, favorites, deleteFav
         </Card>
         )
     }
+
+
+// `${user.username}: (${user.email})`).join(', ')}<br></br>

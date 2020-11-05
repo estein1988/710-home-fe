@@ -16,8 +16,12 @@ class CardsContainer extends Component {
         )
 
         return (
+            <div class="ui grid">
+            <div class="sixteen wide column">
             <div className="cards-container">
                 {renderHomes()}
+            </div>
+            </div>
             </div>
         )
     }
