@@ -1,5 +1,5 @@
 import React from 'react';
-import UserCard from './UserCard'
+import UserFavoritesCard from './UserFavoritesCard'
 import UserModal from './UserModal'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-export default function HouseCard({home, user, clickAction, favorites, deleteFavorite}) {
+export default function HouseCard({home, allHomes, user, clickAction, favorites, deleteFavorite}) {
     const classes = useStyles();
 
     const [expanded, setExpanded] = React.useState(false);
@@ -78,7 +78,7 @@ export default function HouseCard({home, user, clickAction, favorites, deleteFav
         };
 
         const renderUsers = () => home.users.map(
-            user => <UserCard
+            user => <UserFavoritesCard
                 key={user.id}
                 user={user}
                 favorites={favorites}
@@ -156,6 +156,3 @@ export default function HouseCard({home, user, clickAction, favorites, deleteFav
         </Card>
         )
     }
-
-
-// `${user.username}: (${user.email})`).join(', ')}<br></br>

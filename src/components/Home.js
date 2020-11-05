@@ -19,11 +19,11 @@ export default class Home extends Component {
                         <Link to='/'>Home</Link>
                     </div>
                     <div className="header item">
-                        <i className="home icon"></i>
-                        <Link to='/rates'>Mortgage Rates</Link>
+                        <i className="calculator icon"></i>
+                        <Link to='/rates'>Mortgage Calculator</Link>
                     </div>
                     <div className="header item">
-                        <i className="home icon"></i>
+                        <i className="user icon"></i>
                         <Link to='/profile'>My Profile</Link>
                     </div>
                 </div>
@@ -36,7 +36,8 @@ export default class Home extends Component {
 
                 <CardsContainer 
                     allHomes={this.props.allHomes} 
-                    user={this.props.user} 
+                    user={this.props.user}
+                    home={this.props.home}
                     favorites={this.props.favorites}
                     clickAction={this.props.clickAction}
                     deleteFavorite={this.props.deleteFavorite}

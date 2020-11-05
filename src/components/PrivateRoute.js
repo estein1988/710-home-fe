@@ -9,7 +9,7 @@ export default function PrivateRoute(props){
         return localStorage.token 
             ?   <Home 
                     {...routerProps} 
-                    user={user} 
+                    user={user}
                     allHomes={allHomes} 
                     favorites={favorites} 
                     clickAction={clickAction}

@@ -21,7 +21,7 @@ export class MapContainer extends Component {
             showingInfoWindow: true
         })
 
-    onClose = props => {
+    onClose = (props) => {
         if (this.state.showingInfoWindow) {
             this.setState({
                 showingInfoWindow: false,

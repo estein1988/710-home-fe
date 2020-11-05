@@ -60,27 +60,13 @@ class App extends Component {
     }
   }
 
-  // addToFavorites = (home, user) => {
-  //   fetch(`${favoritesURL}/`, {
-  //     method:'POST',
-  //     headers: {
-  //       'Authorization': `Bearer ${localStorage.token}`,
-  //       'Accept': 'application/json',
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify(
-  //         {home: home.id, user: user.id}
-  //     )
-  //   })
-  //   .then(response => response.json())
-  //   .then(favorite => this.setState({favorites: [...this.state.favorites, favorite]}))
-  // }
-
   addToFavorites = (home, user) => {
-    const favorite = {home: home.id, user: user.id}
+    const favoriteObject = {home: home.id, user: user.id}
+    // const homeObject = {home}
+
     this.setState({
-      favorites: [...this.state.favorites, favorite],
-      allHomes: [...this.state.allHomes, home]
+      favorites: [...this.state.favorites, favoriteObject],
+      // allHomes: [...this.state.allHomes, homeObject]
     })
       fetch(`${favoritesURL}/`, {
         method:'POST',
@@ -128,7 +114,7 @@ class App extends Component {
 
         <Route path='/profile'>
           <ProfilePage 
-            user={this.state.user} 
+            user={this.state.user}
             allHomes={this.state.allHomes} 
             favorites={this.state.favorites} />
         </Route>

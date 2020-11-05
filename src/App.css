@@ -43,3 +43,7 @@
   margin: 1rem;
 }
 
+.individual-calculator, .split-calculator, .mortgage-rates {
+  padding: 1rem;
+  border: 2px solid black;
+}
