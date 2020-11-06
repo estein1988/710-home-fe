@@ -10,18 +10,19 @@ class ProfilePage extends Component {
     }
 
     render(){
-        const renderFavorites = () => this.props.user.favorites.map(favorite => <Favorites
-            key={favorite.id}
-            favorite={favorite}
-            user={this.props.user}
-            deleteFavorite={this.props.deleteFavorite}
-            profileFetch={this.props.profileFetch}
-            favoriteFetch={this.props.favoriteFetch}
-        />)
+        const renderFavorites = () => this.props.user.favorites.map(
+            favorite => <Favorites
+                key={favorite.id}
+                favorite={favorite}
+                user={this.props.user}
+                profileFetch={this.props.profileFetch}
+                deleteFavorite={this.props.deleteFavorite}
+            />
+        )
 
     return (
-        
         <div>
+
             <div className="ui inverted blue secondary pointing menu">
                 <div className="header item">
                     {/* {this.props.user.username}  */}
@@ -36,28 +37,35 @@ class ProfilePage extends Component {
                 </div>
                 <div className="header item">
                     <i className="user icon"></i>
-                    <Link to='/profile'>My Profile</Link>
+                    <Link to='/user-profile'>My Profile</Link>
                 </div>
             </div>
 
-                <h4> 
-                    {this.props.user.username}
-                </h4>
-                <p>
-                    {this.props.user.email}
-                <p>
-                    {this.props.user.phone_number}
-                </p>
-                <p>
-                    Hobbies: {this.props.user.hobbies}
-                </p>
-                    {this.props.user.social_level}
-                </p>
-                <br></br>
-
-            <div>
-                {renderFavorites()}
+            <div className="profile-card">
+                <div class="column">
+                    <div class="ui two column centered grid">
+                        <div class="ui card">
+                            <img class="ui medium circular image" src={this.props.user.picture} alt=""></img>
+                            <div class="content">
+                                <a class="header">{this.props.user.username}</a>
+                                <div class="meta">
+                                    <span class="date">{this.props.user.email}</span>
+                                </div>
+                                <div class="description">
+                                    {this.props.user.name} enjoys {this.props.user.hobbies} and is a {this.props.user.occupation}.
+                                </div>
+                            </div>
+                            <div class="extra content">
+                                <a>
+                                    <i class="star icon"></i>
+                                    {this.props.user.favorites.length} favorites
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            {renderFavorites()}
         </div>
         )
     }

@@ -76,7 +76,7 @@ class App extends Component {
 
     this.setState({
       favorites: [...this.state.favorites, favoriteObject],
-      allHomes: [...this.state.allHomes, home]
+      // allHomes: [...this.state.allHomes, home]
     })
       fetch(`${favoritesURL}/`, {
         method:'POST',
@@ -132,14 +132,15 @@ class App extends Component {
           <MortgageRates />
         </Route>
 
-        <Route path='/profile'>
+        <Route path='/user-profile'>
           <ProfilePage 
             user={this.state.user}
             allHomes={this.state.allHomes} 
             favorites={this.state.favorites}
-            deleteFavorite={this.deleteFavorite}
             profileFetch={this.profileFetch}
             favoriteFetch={this.favoriteFetch}
+            homeFetch={this.homeFetch}
+            deleteFavorite={this.deleteFavorite}
           />
         </Route>
 

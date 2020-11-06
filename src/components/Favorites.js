@@ -4,16 +4,15 @@ class Favorites extends Component {
 
     componentDidMount() {
         this.props.profileFetch()
-        this.props.favoriteFetch()
     }
 
     render(){
-    return (
-        <div>
-            <p>{this.props.favorite.home.street}</p>
-            <button onClick={ ()=> this.props.deleteFavorite(this.props.favorite)}>x</button>
-        </div>
-        )
+        return (
+            <div>
+                <p>{this.props.favorite.home.street}</p>
+                <button onClick={ ()=> this.props.deleteFavorite(this.props.favorite)}>x</button>
+            </div>
+            )
     }
 }
 
