@@ -1,5 +1,4 @@
 import React from 'react'
-// import DeleteLike from './DeleteLike'
 
 export default function UserModal({user}) {    
 

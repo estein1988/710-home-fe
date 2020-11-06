@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function UserCard({home, user}) {    
+export default function UserCard({user}) {    
     
     return (
         <div>

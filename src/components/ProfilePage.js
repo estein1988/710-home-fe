@@ -1,14 +1,23 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import Favorites from './Favorites'
 
-export default function ProfilePage({user}) {    
+class ProfilePage extends Component {
 
-    const renderFavorites = () => user.favorites.map(favorite => <Favorites
-        key={favorite.id}
-        favorite={favorite}
-    />
-    )
+    componentDidMount() {
+        this.props.profileFetch()
+        this.props.favoriteFetch()
+    }
+
+    render(){
+        const renderFavorites = () => this.props.user.favorites.map(favorite => <Favorites
+            key={favorite.id}
+            favorite={favorite}
+            user={this.props.user}
+            deleteFavorite={this.props.deleteFavorite}
+            profileFetch={this.props.profileFetch}
+            favoriteFetch={this.props.favoriteFetch}
+        />)
 
     return (
         
@@ -31,18 +40,18 @@ export default function ProfilePage({user}) {
                 </div>
             </div>
 
-                <h4>
-                    {user.username}
+                <h4> 
+                    {this.props.user.username}
                 </h4>
                 <p>
-                    {user.email}
+                    {this.props.user.email}
                 <p>
-                    {user.phone_number}
+                    {this.props.user.phone_number}
                 </p>
                 <p>
-                    {user.hobbies}
+                    Hobbies: {this.props.user.hobbies}
                 </p>
-                    {user.social_level} social level
+                    {this.props.user.social_level}
                 </p>
                 <br></br>
 
@@ -50,5 +59,8 @@ export default function ProfilePage({user}) {
                 {renderFavorites()}
             </div>
         </div>
-    )
+        )
+    }
 }
+
+export default ProfilePage;

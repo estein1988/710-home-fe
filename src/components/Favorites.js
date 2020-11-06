@@ -1,12 +1,20 @@
-import React from 'react'
+import React, {Component} from 'react'
 
-export default function Favorites({favorite}) {    
+class Favorites extends Component {
 
+    componentDidMount() {
+        this.props.profileFetch()
+        this.props.favoriteFetch()
+    }
+
+    render(){
     return (
-
         <div>
-            <p>{favorite.home.street}</p>
-            <button>x</button>
+            <p>{this.props.favorite.home.street}</p>
+            <button onClick={ ()=> this.props.deleteFavorite(this.props.favorite)}>x</button>
         </div>
-    )
+        )
+    }
 }
+
+export default Favorites

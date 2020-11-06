@@ -40,7 +40,6 @@ export default class Home extends Component {
                     home={this.props.home}
                     favorites={this.props.favorites}
                     clickAction={this.props.clickAction}
-                    deleteFavorite={this.props.deleteFavorite}
                 />
 
             </div>

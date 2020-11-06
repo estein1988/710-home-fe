@@ -20,15 +20,12 @@ class App extends Component {
   }
 
   fetchModels = () => {
-    fetch(profileURL, {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${localStorage.token}`
-      }
-    })
-    .then(response => response.json())
-    .then(result => this.setState({user: result}))
-  
+    this.homeFetch()
+    this.profileFetch()
+    this.favoriteFetch()
+  }
+
+  homeFetch = () => {
     fetch(homesURL, {
       method: 'GET',
       headers: {
@@ -37,7 +34,20 @@ class App extends Component {
     })
     .then(response => response.json())
     .then(result => this.setState({allHomes: result}))
-  
+  }
+
+  profileFetch = () => {
+    fetch(profileURL, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${localStorage.token}`
+      }
+    })
+    .then(response => response.json())
+    .then(result => this.setState({user: result}))
+  }
+
+  favoriteFetch = () => {
     fetch(`${favoritesURL}/`, {
       method: 'GET',
       headers: {
@@ -66,7 +76,7 @@ class App extends Component {
 
     this.setState({
       favorites: [...this.state.favorites, favoriteObject],
-      // allHomes: [...this.state.allHomes, homeObject]
+      allHomes: [...this.state.allHomes, home]
     })
       fetch(`${favoritesURL}/`, {
         method:'POST',
@@ -79,6 +89,16 @@ class App extends Component {
             {home: home.id, user: user.id}
         )
       })
+  }
+
+  deleteFavorite = (favorite) => {
+    const newFavorites = this.state.favorites.filter(newFavorite => newFavorite !== favorite)
+    this.setState({favorites: newFavorites})
+      fetch(`${favoritesURL}/${favorite.id}/`, {method: 'DELETE', headers: {
+        'Authorization': `Bearer ${localStorage.token}`,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }})
   }
 
   login = (user) => {
@@ -116,7 +136,11 @@ class App extends Component {
           <ProfilePage 
             user={this.state.user}
             allHomes={this.state.allHomes} 
-            favorites={this.state.favorites} />
+            favorites={this.state.favorites}
+            deleteFavorite={this.deleteFavorite}
+            profileFetch={this.profileFetch}
+            favoriteFetch={this.favoriteFetch}
+          />
         </Route>
 
         <Route 
