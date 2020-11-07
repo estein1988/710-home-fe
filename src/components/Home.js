@@ -29,16 +29,16 @@ export default class Home extends Component {
                     </div>
                 </div>
                 
+                <div className='homeSearchBar'>
+                    <SearchContainer 
+                        filterListings={this.props.filterListings}
+                    />
+                </div>
+
                 <div className="googleMap">
                     <GoogleMap 
                         allHomes={this.props.allHomes} 
                     />
-                </div>
-
-                <div className='homeSearchBar'>
-                <SearchContainer 
-                    filterListings={this.props.filterListings}
-                />
                 </div>
 
                 <CardsContainer 

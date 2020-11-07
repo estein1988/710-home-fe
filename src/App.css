@@ -2,25 +2,29 @@
   text-align: center;
 }
 
+.chartHeader {
+  text-align: center;
+}
+
 .googleMap{
   padding-left: 5rem;
   margin: 1rem;
   display: flex;
-  height: 60%;
+  height: 40%;
   flex-direction: column;
   justify-content: space-around;
 }
 
-.homeSearchBar{
-  padding-top: 35rem;
-}
+/* .homeSearchBar{
+  padding-top: 37rem;
+} */
 
 .cards-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding-top: 2rem;
+  padding-top: 35rem;
   padding-left: 2rem;
   margin: 1rem;
 }
@@ -48,7 +52,7 @@
   margin: 1rem;
 }
 
-.individual-calculator, .split-calculator, .mortgage-rates {
+.individual-calculator, .split-calculator {
   padding: 1rem;
   border: 2px solid black;
   background-color: whitesmoke
@@ -59,7 +63,6 @@
   margin: 1rem;
 }
 
-
 .favorites-container{
   display: flex;
   flex-direction: row;
@@ -67,4 +70,16 @@
   justify-content: space-around;
   padding: 1rem;
   margin: 1rem;
+}
+
+.rates-container{
+  margin-left: 12rem;
+  margin-top: -18rem;
+  margin-bottom: 1rem;
+}
+
+.mortgage-rates{
+  padding: 2rem;
+  border: 2px solid black;
+  background-color: whitesmoke
 }

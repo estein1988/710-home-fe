@@ -32,7 +32,7 @@ export class MapContainer extends Component {
 
     render() {
         return (
-            <div>
+            
             <Map
                 google={this.props.google}
                 zoom={10.5}
@@ -69,14 +69,14 @@ export class MapContainer extends Component {
                 visible={this.state.showingInfoWindow}
                 onClose={this.onClose}
             >
-            <div>
+            {/* <div> */}
                 <h3>{this.state.selectedPlace.street}</h3>
                 <h4>{this.state.selectedPlace.city}, {this.state.selectedPlace.state}, {this.state.selectedPlace.zip}</h4>
                 <p>Price: ${this.state.selectedPlace.price}</p>
-            </div>
+            {/* </div> */}
             </InfoWindow>
         </Map>
-        </div>
+        
         )   
     }
 }
