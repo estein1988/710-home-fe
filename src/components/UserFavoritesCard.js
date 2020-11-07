@@ -1,12 +1,12 @@
-import React from 'react'
+// import React from 'react'
 
-export default function UserCard({user}) {    
+// export default function UserCard({user}) {    
     
-    return (
-        <div>
-            <h4>
-                {user.username} - {user.budget} - {user.lease_end}
-            </h4>
-        </div>
-    )
-}
+//     return (
+//         <div>
+//             <h4>
+//                 {user.username} - {user.budget} - {user.lease_end}
+//             </h4>
+//         </div>
+//     )
+// }

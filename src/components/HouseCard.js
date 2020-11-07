@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-export default function HouseCard({home, allHomes, user, clickAction, favorites, deleteFavorite}) {
+export default function HouseCard({home, allHomes, user, clickAction, favorites, profileFetch, favoriteFetch, homeFetch}) {
     const classes = useStyles();
 
     const [expanded, setExpanded] = React.useState(false);
@@ -78,21 +78,24 @@ export default function HouseCard({home, allHomes, user, clickAction, favorites,
             setOpen(false);
         };
 
-        const renderUsers = () => home.users.map(
-            user => <UserFavoritesCard
-                key={user.id}
-                user={user}
-                favorites={favorites}
-            />
-        )
-
         // const renderUsers = () => home.users.map(
-        //     user => <UserFavoritesCardTwo
+        //     user => <UserFavoritesCard
         //         key={user.id}
         //         user={user}
         //         favorites={favorites}
         //     />
         // )
+
+        const renderUsers = () => home.users.map(
+            user => <UserFavoritesCardTwo
+                key={user.id}
+                user={user}
+                favorites={favorites}
+                profileFetch={profileFetch}
+                favoriteFetch={favoriteFetch}
+                homeFetch={homeFetch}
+            />
+        )
         
         return (
             <Card className={classes.root}>
@@ -145,17 +148,17 @@ export default function HouseCard({home, allHomes, user, clickAction, favorites,
                     aria-labelledby="simple-modal-title"
                     aria-describedby="simple-modal-description"
                 >
-                <div style={modalStyle} className={classes.paper}>
-                    <h2 id="simple-modal-title">{home.street} has been favorited by:</h2>
-                        <p id="simple-modal-description">
-                            {home.users.map(user => 
-                                <UserModal
-                                    key={user.id}
-                                    user={user}
-                                />
-                            )}
-                        </p>
-                </div>
+                    <div style={modalStyle} className={classes.paper}>
+                        <h2 id="simple-modal-title">{home.street} has been favorited by:</h2>
+                            <p id="simple-modal-description">
+                                {home.users.map(user => 
+                                    <UserModal
+                                        key={user.id}
+                                        user={user}
+                                    />
+                                )}
+                            </p>
+                    </div>
                 </Modal>
                 </div>
                 </Typography>

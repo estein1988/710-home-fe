@@ -12,6 +12,9 @@ class CardsContainer extends Component {
                 user={this.props.user}
                 favorites={this.props.favorites}
                 clickAction={this.props.clickAction}
+                profileFetch={this.props.profileFetch}
+                favoriteFetch={this.props.favoriteFetch}
+                homeFetch={this.props.homeFetch}
             />
         )
 

@@ -40,6 +40,9 @@ export default class Home extends Component {
                     home={this.props.home}
                     favorites={this.props.favorites}
                     clickAction={this.props.clickAction}
+                    profileFetch={this.props.profileFetch}
+                    favoriteFetch={this.props.favoriteFetch}
+                    homeFetch={this.props.homeFetch}
                 />
 
             </div>

@@ -20,14 +20,14 @@
   margin: 1rem;
 }
 
-.home-cards{
+/* .home-cards{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   padding: 1rem;
   margin: 1rem;
   justify-content: center;
-}
+} */
 
 .cover-photo{
   min-height: 100%;
@@ -49,6 +49,16 @@
 }
 
 .profile-card {
+  padding: 1rem;
+  margin: 1rem;
+}
+
+
+.favorites-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
   padding: 1rem;
   margin: 1rem;
 }

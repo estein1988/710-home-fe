@@ -7,8 +7,17 @@ class ProfilePage extends Component {
     componentDidMount() {
         this.props.profileFetch()
         this.props.favoriteFetch()
+        this.props.homeFetch()
     }
 
+    componentDidUpdate() {
+        if(localStorage.token && this.props.user === 0) {
+            this.props.profileFetch()
+            this.props.favoriteFetch()
+            this.props.homeFetch()
+        }
+    }
+    
     render(){
         const renderFavorites = () => this.props.user.favorites.map(
             favorite => <Favorites
@@ -65,7 +74,11 @@ class ProfilePage extends Component {
                     </div>
                 </div>
             </div>
-            {renderFavorites()}
+            <div class="sixteen wide column">
+                <div className="favorites-container">
+                    {renderFavorites()}
+                </div>
+            </div>
         </div>
         )
     }

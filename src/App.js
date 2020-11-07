@@ -94,11 +94,13 @@ class App extends Component {
   deleteFavorite = (favorite) => {
     const newFavorites = this.state.favorites.filter(newFavorite => newFavorite !== favorite)
     this.setState({favorites: newFavorites})
-      fetch(`${favoritesURL}/${favorite.id}/`, {method: 'DELETE', headers: {
-        'Authorization': `Bearer ${localStorage.token}`,
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }})
+      fetch(`${favoritesURL}/${favorite.id}/`, {method: 'DELETE', 
+        headers: {
+          'Authorization': `Bearer ${localStorage.token}`,
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
   }
 
   login = (user) => {
@@ -126,6 +128,9 @@ class App extends Component {
           allHomes={this.state.allHomes} 
           favorites={this.state.favorites} 
           clickAction={this.addToFavorites}
+          profileFetch={this.profileFetch}
+          favoriteFetch={this.favoriteFetch}
+          homeFetch={this.homeFetch}
         />
 
         <Route path='/rates'>
