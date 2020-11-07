@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import GoogleMap from './GoogleMap'
+import SearchContainer from './SearchContainer'
 import CardsContainer from './CardsContainer'
 import {Link} from 'react-router-dom'
 import 'semantic-ui-css/semantic.min.css'
@@ -32,6 +33,12 @@ export default class Home extends Component {
                     <GoogleMap 
                         allHomes={this.props.allHomes} 
                     />
+                </div>
+
+                <div className='homeSearchBar'>
+                <SearchContainer 
+                    filterListings={this.props.filterListings}
+                />
                 </div>
 
                 <CardsContainer 

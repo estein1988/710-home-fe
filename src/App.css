@@ -6,8 +6,13 @@
   padding-left: 5rem;
   margin: 1rem;
   display: flex;
+  height: 60%;
   flex-direction: column;
   justify-content: space-around;
+}
+
+.homeSearchBar{
+  padding-top: 35rem;
 }
 
 .cards-container {
@@ -15,19 +20,19 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding-top: 35rem;
+  padding-top: 2rem;
   padding-left: 2rem;
   margin: 1rem;
 }
 
-/* .home-cards{
+.home-cards{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   padding: 1rem;
   margin: 1rem;
   justify-content: center;
-} */
+}
 
 .cover-photo{
   min-height: 100%;
@@ -46,6 +51,7 @@
 .individual-calculator, .split-calculator, .mortgage-rates {
   padding: 1rem;
   border: 2px solid black;
+  background-color: whitesmoke
 }
 
 .profile-card {

@@ -9,6 +9,7 @@ import './App.css';
 const loginURL = 'http://localhost:8000/login/'
 const profileURL = 'http://localhost:8000/profile/'
 const homesURL = 'http://localhost:8000/homes/'
+const usersURL = 'http://localhost:8000/users/'
 const favoritesURL = 'http://localhost:8000/favorites'
 
 class App extends Component {
@@ -16,13 +17,29 @@ class App extends Component {
   state = {
     user: [],
     allHomes: [],
-    favorites: []
+    favorites: [],
+    allUsers: [],
+    filteredHomes: []
   }
 
   fetchModels = () => {
     this.homeFetch()
     this.profileFetch()
     this.favoriteFetch()
+    this.userFetch()
+  }
+
+  userFetch = () => {
+    fetch(usersURL, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${localStorage.token}`
+      }
+    })
+    .then(response => response.json())
+    .then(result => {
+      this.setState({allUsers: result}) 
+    })
   }
 
   homeFetch = () => {
@@ -33,7 +50,10 @@ class App extends Component {
       }
     })
     .then(response => response.json())
-    .then(result => this.setState({allHomes: result}))
+    .then(result => {
+      this.setState({allHomes: result})
+      this.setState({filteredHomes: result})
+    })
   }
 
   profileFetch = () => {
@@ -103,6 +123,15 @@ class App extends Component {
       })
   }
 
+  filterListings = (event) => {
+    const input = event.target.value
+    const filterListings = this.state.allHomes
+    .filter(
+      home => home.street.toLowerCase().includes(input.toLowerCase())
+    )
+    this.setState({filteredHomes: filterListings})
+  }
+
   login = (user) => {
     return fetch(loginURL, {
       method: "POST",
@@ -124,13 +153,16 @@ class App extends Component {
 
         <PrivateRoute 
           exact path='/' 
-          user={this.state.user} 
-          allHomes={this.state.allHomes} 
-          favorites={this.state.favorites} 
+          user={this.state.user}
+          allUsers={this.state.allUsers}
+          allHomes={this.state.filteredHomes}
+          filteredHomes={this.state.filteredHomes}
+          favorites={this.state.favorites}
           clickAction={this.addToFavorites}
           profileFetch={this.profileFetch}
           favoriteFetch={this.favoriteFetch}
           homeFetch={this.homeFetch}
+          filterListings={this.filterListings}
         />
 
         <Route path='/rates'>
@@ -140,6 +172,7 @@ class App extends Component {
         <Route path='/user-profile'>
           <ProfilePage 
             user={this.state.user}
+            allUsers={this.state.allUsers}
             allHomes={this.state.allHomes} 
             favorites={this.state.favorites}
             profileFetch={this.profileFetch}
