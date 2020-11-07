@@ -83,3 +83,12 @@
   border: 2px solid black;
   background-color: whitesmoke
 }
+
+.user-cards-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-left: 1rem;
+  margin: 1rem;
+}

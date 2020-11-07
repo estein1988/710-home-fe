@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PrivateRoute from './components/PrivateRoute'
 import Login from './components/Login'
+import AllUsersContainer from './components/AllUsersContainer'
 import MortgageRates from './components/MortgageRates'
 import ProfilePage from './components/ProfilePage'
 import { Redirect, Route, Switch } from 'react-router-dom'
@@ -19,7 +20,8 @@ class App extends Component {
     allHomes: [],
     favorites: [],
     allUsers: [],
-    filteredHomes: []
+    filteredHomes: [],
+    filteredUsers: []
   }
 
   fetchModels = () => {
@@ -39,6 +41,7 @@ class App extends Component {
     .then(response => response.json())
     .then(result => {
       this.setState({allUsers: result}) 
+      this.setState({filteredUsers: result})
     })
   }
 
@@ -132,6 +135,15 @@ class App extends Component {
     this.setState({filteredHomes: filterListings})
   }
 
+  filterUsers = (event) => {
+    const input = event.target.value
+    const filterUsers = this.state.allUsers
+    .filter(
+      user => user.hobbies.toLowerCase().includes(input.toLowerCase())
+    )
+    this.setState({filteredUsers: filterUsers})
+  }
+
   login = (user) => {
     return fetch(loginURL, {
       method: "POST",
@@ -179,6 +191,13 @@ class App extends Component {
             favoriteFetch={this.favoriteFetch}
             homeFetch={this.homeFetch}
             deleteFavorite={this.deleteFavorite}
+          />
+        </Route>
+
+        <Route path='/all-users'>
+          <AllUsersContainer
+            allUsers={this.state.filteredUsers}
+            filterUsers={this.filterUsers}
           />
         </Route>
 

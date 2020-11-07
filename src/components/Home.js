@@ -27,6 +27,10 @@ export default class Home extends Component {
                         <i className="user icon"></i>
                         <Link to='/user-profile'>My Profile</Link>
                     </div>
+                    <div className="header item">
+                        <i className="user icon"></i>
+                        <Link to='/all-users'>All Useres</Link>
+                    </div>
                 </div>
                 
                 <div className='homeSearchBar'>

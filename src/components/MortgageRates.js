@@ -5,8 +5,8 @@ import {
     ChartSeries,
     ChartSeriesItem
 } from '@progress/kendo-react-charts';
+import 'hammerjs'
 import '@progress/kendo-theme-default/dist/all.css'
-// import CalculatorCard from '../CalculatorCard'
 import {Link} from 'react-router-dom'
 
 class MortageRates extends Component {
