@@ -3,7 +3,7 @@ import Home from './Home'
 import { Route, Redirect } from 'react-router-dom'
 
 export default function PrivateRoute(props){
-    const {user, allHomes, favorites, clickAction, profileFetch, favoriteFetch, homeFetch, filterListings, filteredHomes} = props
+    const {user, allHomes, favorites, clickAction, profileFetch, favoriteFetch, homeFetch, filterListings, filteredHomes, logout} = props
 
     return <Route {...props} render={(routerProps) => {
         return localStorage.token 
@@ -18,6 +18,7 @@ export default function PrivateRoute(props){
                     favoriteFetch={favoriteFetch}
                     homeFetch={homeFetch}
                     filterListings={filterListings}
+                    logout={logout}
                 />
             :   <Redirect to="/login" />
     }} />

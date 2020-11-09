@@ -67,6 +67,7 @@
 .profile-card {
   padding: 1rem;
   margin: 1rem;
+  height: max-content;
 }
 
 .favorites-container{
@@ -97,4 +98,8 @@
   justify-content: space-around;
   padding-left: 1rem;
   margin: 1rem;
+}
+
+.edit-button{
+  background-color: blue;
 }

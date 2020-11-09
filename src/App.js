@@ -4,6 +4,7 @@ import Login from './components/Login'
 import AllUsersContainer from './components/AllUsersContainer'
 import MortgageRates from './components/MortgageRates'
 import ProfilePage from './components/ProfilePage'
+import SignUp from './components/SignUp'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import './App.css';
 
@@ -144,6 +145,11 @@ class App extends Component {
     this.setState({filteredUsers: filterUsers})
   }
 
+  // updateProfile = (updatedProfile) => {
+  //   let updateUser = this.state.allUsers.map(user => user.id === updatedProfile.id ? updatedProfile : user)
+  //   this.setState({updateUser})
+  // }
+
   login = (user) => {
     return fetch(loginURL, {
       method: "POST",
@@ -156,6 +162,12 @@ class App extends Component {
     .then(result => {localStorage.setItem('token', result.access)
       this.setState({user: result})
     })
+  }
+
+  logout = () => {
+    localStorage.setItem('token', '');
+    localStorage.clear();
+    this.setState({ redirect: true });
   }
 
   render(){
@@ -175,10 +187,13 @@ class App extends Component {
           favoriteFetch={this.favoriteFetch}
           homeFetch={this.homeFetch}
           filterListings={this.filterListings}
+          logout={this.logout}
         />
 
         <Route path='/rates'>
-          <MortgageRates />
+          <MortgageRates 
+            logout={this.logout}
+          />
         </Route>
 
         <Route path='/user-profile'>
@@ -191,6 +206,7 @@ class App extends Component {
             favoriteFetch={this.favoriteFetch}
             homeFetch={this.homeFetch}
             deleteFavorite={this.deleteFavorite}
+            updateProfile={this.updateProfile}
           />
         </Route>
 
@@ -198,6 +214,11 @@ class App extends Component {
           <AllUsersContainer
             allUsers={this.state.filteredUsers}
             filterUsers={this.filterUsers}
+          />
+        </Route>
+
+        <Route path='/register'>
+          <SignUp
           />
         </Route>
 

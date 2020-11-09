@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 import coverphoto from './coverphoto.jpg'
 import 'semantic-ui-css/semantic.min.css'
 
@@ -44,6 +45,11 @@ export default class Login extends Component {
 
                             <button class="ui primary button" type='submit' id='submit' value='Login'>
                                 Login
+                            </button>
+
+                            <button class="ui red button">
+                                <Link to='/register'></Link>
+                                Register New Account
                             </button>
                         </div>
                     </form>

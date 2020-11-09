@@ -5,11 +5,11 @@ import React, {Component} from 'react'
 
 class UserFavoritesTwoCard extends Component {
 
-    componentDidMount(){
-        this.props.homeFetch()
-        this.props.profileFetch()
-        this.props.favoriteFetch()
-    }
+    // componentDidMount(){
+    //     this.props.homeFetch()
+    //     this.props.profileFetch()
+    //     this.props.favoriteFetch()
+    // }
 
     // componentDidUpdate({favorites}) {
     //     if (this.props.favorites !== favorites && this.props.favorites.length === 0) {
@@ -22,10 +22,11 @@ class UserFavoritesTwoCard extends Component {
     render() {
 
         return (
-            <div className="user-info">
-                <h4>
-                    {this.props.user.username} - {this.props.user.email}
-                </h4>
+            <div>
+                <img class="ui tiny image centered" src={this.props.user.picture}></img>
+                    <div class="middle aligned content">
+                        <a class="header">{this.props.user.email}</a>
+                    </div>
             </div>
         )
     }

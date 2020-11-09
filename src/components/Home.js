@@ -6,11 +6,11 @@ import {Link} from 'react-router-dom'
 import 'semantic-ui-css/semantic.min.css'
 
 export default class Home extends Component {
-    render(){
-        
+    
+    render(){    
+
         return(
             <div>
-
                 <div className="ui inverted blue secondary pointing menu">
                     <div className="header item">
                         {this.props.user.username} 
@@ -30,6 +30,10 @@ export default class Home extends Component {
                     <div className="header item">
                         <i className="user icon"></i>
                         <Link to='/all-users'>All Users</Link>
+                    </div>
+                    <div className="header item">
+                        <i onClick={this.props.logout} className="sign out icon"></i>
+                        <p>Logout</p>
                     </div>
                 </div>
                 

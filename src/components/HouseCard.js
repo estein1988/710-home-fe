@@ -139,7 +139,7 @@ export default function HouseCard({home, allHomes, user, clickAction, favorites,
                         {renderUsers()}
                     </div>
                 <div>
-                <button type="button" onClick={handleOpen}>
+                <button class="ui inverted primary button" onClick={handleOpen}>
                     Additonal Favorite Info.
                 </button>
                 <Modal
@@ -148,16 +148,19 @@ export default function HouseCard({home, allHomes, user, clickAction, favorites,
                     aria-labelledby="simple-modal-title"
                     aria-describedby="simple-modal-description"
                 >
-                    <div style={modalStyle} className={classes.paper}>
-                        <h2 id="simple-modal-title">{home.line} has been favorited by:</h2>
-                            <p id="simple-modal-description">
-                                {home.users.map(user => 
-                                    <UserModal
-                                        key={user.id}
-                                        user={user}
-                                    />
-                                )}
-                            </p>
+                <div style={modalStyle} className={classes.paper}>
+                <div class="ui yellow message">
+                    <i class="star icon"></i>
+                        {home.line} favorites:
+                    </div>
+                        <p id="simple-modal-description">
+                            {home.users.map(user => 
+                                <UserModal
+                                    key={user.id}
+                                    user={user}
+                                />
+                            )}
+                        </p>
                     </div>
                 </Modal>
                 </div>
