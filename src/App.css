@@ -19,6 +19,12 @@
   padding-top: 37rem;
 } */
 
+.leaflet-container { 
+  margin: 1rem; 
+  width: 80vw;
+  height: 50vh; 
+}
+
 .cards-container {
   display: flex;
   flex-direction: row;

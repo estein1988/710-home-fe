@@ -87,11 +87,11 @@ class App extends Component {
     }
   }
 
-  componentDidUpdate(){
-    if(localStorage.token && this.state.allHomes.length === 0) {
-      this.fetchModels()
-    }
-  }
+  // componentDidUpdate(){
+  //   if(localStorage.token && this.state.allHomes.length === 0) {
+  //     this.fetchModels()
+  //   }
+  // }
 
   addToFavorites = (home, user) => {
     const favoriteObject = {home: home.id, user: user.id}
@@ -130,7 +130,7 @@ class App extends Component {
     const input = event.target.value
     const filterListings = this.state.allHomes
     .filter(
-      home => home.street.toLowerCase().includes(input.toLowerCase())
+      home => home.line.toLowerCase().includes(input.toLowerCase())
     )
     this.setState({filteredHomes: filterListings})
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
+import red_icon from '../assets/red_icon.png'
 
 const mapStyles = {
     width: '90%',
@@ -47,21 +48,21 @@ export class MapContainer extends Component {
             {this.props.allHomes.map(home => (
                 <Marker 
                     onClick={this.onMarkerClick}
-                    key={home.street}
-                    street={home.street}
+                    key={home.id}
+                    street={home.line}
                     city={home.city}
                     state={home.state}
-                    zip={home.zip_code}
+                    zip={home.postal_code}
                     price={home.price}
                     position={{
                         lat: home.lat,
-                        lng: home.log
+                        lng: home.lon
                     }}
-                    icon={home.price < 600000  
-                        ? {url: `https://www.clker.com/cliparts/R/g/O/v/U/h/google-maps-marker-for-residencelamontagne-md.png`, scaledSize: new window.google.maps.Size(20, 20)}
-                        : {url: `https://www.clker.com/cliparts/W/0/g/a/W/E/map-pin-red.svg`, scaledSize: new window.google.maps.Size(35, 35)}
-                        
-                    }
+                    icon={{url: red_icon, scaledSize: new window.google.maps.Size(28, 28)}}
+                    // icon={home.price < 600000  
+                    //     ? {url: require('../assets/google_map_red.png'), scaledSize: new window.google.maps.Size(20, 20)}
+                    //     : {url: require('../assets/google_map_red.png'), scaledSize: new window.google.maps.Size(10, 10)}
+                    // }
                 />
             ))}
             <InfoWindow
@@ -69,11 +70,9 @@ export class MapContainer extends Component {
                 visible={this.state.showingInfoWindow}
                 onClose={this.onClose}
             >
-            {/* <div> */}
-                <h3>{this.state.selectedPlace.street}</h3>
-                <h4>{this.state.selectedPlace.city}, {this.state.selectedPlace.state}, {this.state.selectedPlace.zip}</h4>
-                <p>Price: ${this.state.selectedPlace.price}</p>
-            {/* </div> */}
+                <div>
+                    <h3>State {this.state.selectedPlace.state}</h3>
+                </div>
             </InfoWindow>
         </Map>
         

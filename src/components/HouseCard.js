@@ -102,18 +102,18 @@ export default function HouseCard({home, allHomes, user, clickAction, favorites,
             <CardActionArea>
                 <CardMedia
                     className={classes.media}
-                    image={home.photo}
+                    image={home.thumbnail}
                     title="Contemplative Reptile"
                 />
                 <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                    {home.street}
+                    {home.line}
                 </Typography>
                 <Typography gutterBottom variant="h6" component="h6">
-                    {home.city} - {home.state} - {home.zip_code}
+                    {home.city} - {home.state} - {home.postal_code}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    Single family home priced at ${home.price}. {home.bed} beds and {home.bath} baths. Located in {home.city}'s South Denver neighborhood. Listing ID: 2922984512.  
+                    Single family home priced at ${home.price}. {home.beds} beds and {home.baths} baths. Located in {home.city}'s South Denver neighborhood. Listing ID: 2922984512.  
                 </Typography>
                 </CardContent>
             </CardActionArea>
@@ -149,7 +149,7 @@ export default function HouseCard({home, allHomes, user, clickAction, favorites,
                     aria-describedby="simple-modal-description"
                 >
                     <div style={modalStyle} className={classes.paper}>
-                        <h2 id="simple-modal-title">{home.street} has been favorited by:</h2>
+                        <h2 id="simple-modal-title">{home.line} has been favorited by:</h2>
                             <p id="simple-modal-description">
                                 {home.users.map(user => 
                                     <UserModal

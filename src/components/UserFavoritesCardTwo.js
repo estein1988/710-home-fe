@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 
-const profileURL = 'http://localhost:8000/profile/'
-const favoritesURL = 'http://localhost:8000/favorites'
+// const profileURL = 'http://localhost:8000/profile/'
+// const favoritesURL = 'http://localhost:8000/favorites'
 
 class UserFavoritesTwoCard extends Component {
 
@@ -11,13 +11,13 @@ class UserFavoritesTwoCard extends Component {
         this.props.favoriteFetch()
     }
 
-    componentDidUpdate({favorites}) {
-        if (this.props.favorites !== favorites && this.props.favorites.length === 0) {
-            this.props.homeFetch()
-            this.props.profileFetch()
-            this.props.favoriteFetch()
-        }
-    }
+    // componentDidUpdate({favorites}) {
+    //     if (this.props.favorites !== favorites && this.props.favorites.length === 0) {
+    //         this.props.homeFetch()
+    //         this.props.profileFetch()
+    //         this.props.favoriteFetch()
+    //     }
+    // }
 
     render() {
 

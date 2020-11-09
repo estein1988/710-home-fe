@@ -29,7 +29,7 @@ export default class Home extends Component {
                     </div>
                     <div className="header item">
                         <i className="user icon"></i>
-                        <Link to='/all-users'>All Useres</Link>
+                        <Link to='/all-users'>All Users</Link>
                     </div>
                 </div>
                 
