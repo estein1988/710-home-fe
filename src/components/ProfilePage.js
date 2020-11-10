@@ -23,7 +23,7 @@ export default function ProfilePage({fetchModels, user, favorites, deleteFavorit
 
     const profileCard = () => (
         <div>
-        <div className="ui inverted blue secondary pointing menu">
+        <div className="ui huge inverted blue secondary pointing menu">
             <div className="header item">
                 {user.username} 
             </div>

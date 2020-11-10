@@ -10,7 +10,7 @@ export default class Home extends Component {
     render(){
         return(
             <div>
-                <div className="ui inverted blue secondary pointing menu">
+                <div className="ui huge inverted blue secondary pointing menu">
                     <div className="header item">
                         {this.props.user.username} 
                     </div>

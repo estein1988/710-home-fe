@@ -15,7 +15,7 @@
   justify-content: space-around;
 }
 
-#home-search-bar{
+#home-search-bar, #user-search-bar{
   padding: 1rem;
   border: 2px solid black;
   background-color: whitesmoke

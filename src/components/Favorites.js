@@ -32,9 +32,15 @@ import Typography from '@material-ui/core/Typography';
             <Typography gutterBottom variant="h5" component="h2">
                 {favorite.home.line}
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-                {favorite.home.city} {favorite.home.state} {favorite.home.postal_code}
-                {/* Priced at ${favorite.home.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}. {favorite.home.beds} beds and {favorite.home.baths} baths. {favorite.home.size.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} {favorite.home.units}. Located in {favorite.home.city}'s {favorite.home.neighborhood_name} neighborhood. */}
+            <Typography gutterBottom variant="h6" component="h6">
+                {favorite.home.city} - {favorite.home.state} - {favorite.home.postal_code}
+            </Typography>
+            <Typography variant="body" color="textSecondary" component="p">
+                ${favorite.home.price}
+                <br></br>
+                {favorite.home.beds} beds {favorite.home.baths} baths
+                <br></br>
+                {favorite.home.neighborhood_name}
             </Typography>
             </CardContent>
         </CardActionArea>
