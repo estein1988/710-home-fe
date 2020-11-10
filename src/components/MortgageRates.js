@@ -58,6 +58,7 @@ class MortageRates extends Component {
     getMortgageRates = () => {
         const url = `https://rapidapi.p.rapidapi.com/finance/rates?loc=${this.state.zipCode}`
         fetch(url,{method: 'GET', headers: {
+            
             "x-rapidapi-host": "realtor.p.rapidapi.com"
         },
     })
@@ -68,6 +69,7 @@ class MortageRates extends Component {
     getCalculator = () => {
         const url = `https://rapidapi.p.rapidapi.com/mortgage/calculate?hoi=${this.state.hoi}&tax_rate=${this.state.tax_rate}&downpayment=${this.state.down_payment}&price=${this.state.price}&term=${this.state.term}&rate=${this.state.rate}`
         fetch(url, {"method": "GET", headers: {
+            
             "x-rapidapi-host": "realtor.p.rapidapi.com"
         }
     })
@@ -78,6 +80,7 @@ class MortageRates extends Component {
     getCalculatorSplit = () => {
         const url = `https://rapidapi.p.rapidapi.com/mortgage/calculate?hoi=${this.state.hoi_split}&tax_rate=${this.state.tax_rate_split}&downpayment=${this.state.down_payment_split}&price=${this.state.price_split}&term=${this.state.term_split}&rate=${this.state.rate_split}`
         fetch(url, {"method": "GET", headers: {
+            
             "x-rapidapi-host": "realtor.p.rapidapi.com"
         }
     })

@@ -33,8 +33,7 @@ import Typography from '@material-ui/core/Typography';
                 {favorite.home.line}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-                Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                across all continents except Antarctica
+            Single family home priced at ${favorite.home.price}. {favorite.home.beds} beds and {favorite.home.baths} baths. Located in {favorite.home.city}'s South Denver neighborhood. 
             </Typography>
             </CardContent>
         </CardActionArea>
@@ -46,22 +45,3 @@ import Typography from '@material-ui/core/Typography';
         </Card>
     );
 }
-
-
-            // <div className="favorite-cards">
-            //     <div class="ui grid">
-            //         <div class="four wide column">
-            //             <div class="column">
-            //                 <div class="ui centered card">
-            //                     <div class="ui medium centered image">
-            //                         <img src={this.props.favorite.home.photo} alt=""/>
-            //                     </div>
-            //                     <div class="content">
-            //                         <a class="header">{this.props.favorite.home.street}</a>
-            //                         <button onClick={ ()=> this.props.deleteFavorite(this.props.favorite)}>x</button>
-            //                     </div>
-            //                 </div>
-            //             </div>
-            //         </div>
-            //     </div>
-            // </div>

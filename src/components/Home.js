@@ -7,8 +7,7 @@ import 'semantic-ui-css/semantic.min.css'
 
 export default class Home extends Component {
     
-    render(){    
-
+    render(){
         return(
             <div>
                 <div className="ui inverted blue secondary pointing menu">

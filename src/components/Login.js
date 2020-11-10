@@ -47,7 +47,7 @@ export default class Login extends Component {
                                 Login
                             </button>
 
-                            <button class="ui red button">
+                            <button className="ui red button">
                                 <Link to='/register'></Link>
                                 Register New Account
                             </button>

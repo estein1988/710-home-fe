@@ -16,34 +16,34 @@ class AllUsersContainer extends Component {
         return (
             <div>
                 <div className="ui inverted blue secondary pointing menu">
-                <div className="header item">
-                    {/* {this.props.user.username}  */}
+                    <div className="header item">
+                        {/* {this.props.user.username}  */}
+                    </div>
+                    <div className="blue header item">
+                        <i className="home icon"></i>
+                        <Link to='/'>Home</Link>
+                    </div>
+                    <div className="header item">
+                        <i className="calculator icon"></i>
+                        <Link to='/rates'>Mortgage Calculator</Link>
+                    </div>
+                    <div className="header item">
+                        <i className="user icon"></i>
+                        <Link to='/user-profile'>My Profile</Link>
+                    </div>
+                    <div className="header item">
+                        <i className="user icon"></i>
+                        <Link to='/all-users'>All Users</Link>
+                    </div>
+                    <div className="header item">
+                        <i className="sign out icon"></i>
+                        <Link to='/login'>Logout</Link>
+                    </div>
                 </div>
-                <div className="blue header item">
-                    <i className="home icon"></i>
-                    <Link to='/'>Home</Link>
-                </div>
-                <div className="header item">
-                    <i className="calculator icon"></i>
-                    <Link to='/rates'>Mortgage Calculator</Link>
-                </div>
-                <div className="header item">
-                    <i className="user icon"></i>
-                    <Link to='/user-profile'>My Profile</Link>
-                </div>
-                <div className="header item">
-                    <i className="user icon"></i>
-                    <Link to='/all-users'>All Users</Link>
-                </div>
-                <div className="header item">
-                    <i className="sign out icon"></i>
-                    <Link to='/login'>Logout</Link>
-                </div>
-            </div>
 
-            <SearchContainerUser 
-                filterUsers={this.props.filterUsers}
-            />
+                <SearchContainerUser 
+                    filterUsers={this.props.filterUsers}
+                />
 
                 <div class="fifteen wide column">
                     <div className="user-cards-container">

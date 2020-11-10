@@ -1,5 +1,5 @@
 import React from 'react';
-import UserFavoritesCard from './UserFavoritesCard'
+// import UserFavoritesCard from './UserFavoritesCard'
 import UserFavoritesCardTwo from './UserFavoritesCardTwo'
 import UserModal from './UserModal'
 import { makeStyles } from '@material-ui/core/styles';
@@ -78,14 +78,6 @@ export default function HouseCard({home, allHomes, user, clickAction, favorites,
             setOpen(false);
         };
 
-        // const renderUsers = () => home.users.map(
-        //     user => <UserFavoritesCard
-        //         key={user.id}
-        //         user={user}
-        //         favorites={favorites}
-        //     />
-        // )
-
         const renderUsers = () => home.users.map(
             user => <UserFavoritesCardTwo
                 key={user.id}
@@ -113,7 +105,7 @@ export default function HouseCard({home, allHomes, user, clickAction, favorites,
                     {home.city} - {home.state} - {home.postal_code}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    Single family home priced at ${home.price}. {home.beds} beds and {home.baths} baths. Located in {home.city}'s South Denver neighborhood. Listing ID: 2922984512.  
+                    Single family home priced at ${home.price}. {home.beds} beds and {home.baths} baths. Located in {home.city}'s South Denver neighborhood.  
                 </Typography>
                 </CardContent>
             </CardActionArea>

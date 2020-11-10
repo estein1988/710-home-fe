@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import red_icon from '../assets/red_icon.png'
+import green_icon from '../assets/green_icon_new.png'
+
 
 const mapStyles = {
     width: '90%',
@@ -33,7 +35,6 @@ export class MapContainer extends Component {
 
     render() {
         return (
-            
             <Map
                 google={this.props.google}
                 zoom={10.5}
@@ -58,11 +59,10 @@ export class MapContainer extends Component {
                         lat: home.lat,
                         lng: home.lon
                     }}
-                    icon={{url: red_icon, scaledSize: new window.google.maps.Size(28, 28)}}
-                    // icon={home.price < 600000  
-                    //     ? {url: require('../assets/google_map_red.png'), scaledSize: new window.google.maps.Size(20, 20)}
-                    //     : {url: require('../assets/google_map_red.png'), scaledSize: new window.google.maps.Size(10, 10)}
-                    // }
+                    icon={home.price < 500000
+                        ? {url: green_icon, scaledSize: new window.google.maps.Size(28, 28)}
+                        : {url: red_icon, scaledSize: new window.google.maps.Size(28, 28)}
+                    }
                 />
             ))}
             <InfoWindow
@@ -71,7 +71,11 @@ export class MapContainer extends Component {
                 onClose={this.onClose}
             >
                 <div>
-                    <h3>State {this.state.selectedPlace.state}</h3>
+                    <h3>
+                        {this.state.selectedPlace.street}<br></br>
+                        {this.state.selectedPlace.city}, {this.state.selectedPlace.state}, {this.state.selectedPlace.zip}
+                    </h3>
+                        <p>${this.state.selectedPlace.price}</p>
                 </div>
             </InfoWindow>
         </Map>

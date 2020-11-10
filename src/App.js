@@ -17,7 +17,7 @@ const favoritesURL = 'http://localhost:8000/favorites'
 class App extends Component {
 
   state = {
-    user: [],
+    user: {},
     allHomes: [],
     favorites: [],
     allUsers: [],
@@ -28,7 +28,7 @@ class App extends Component {
   fetchModels = () => {
     this.homeFetch()
     this.profileFetch()
-    this.favoriteFetch()
+    // this.favoriteFetch()
     this.userFetch()
   }
 
@@ -68,19 +68,22 @@ class App extends Component {
       }
     })
     .then(response => response.json())
-    .then(result => this.setState({user: result}))
+    .then(result => {
+      this.setState({user: result})
+      this.setState({favorites: result.favorites})
+    })
   }
 
-  favoriteFetch = () => {
-    fetch(`${favoritesURL}/`, {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${localStorage.token}`
-      }
-    })
-    .then(response => response.json())
-    .then(result => this.setState({favorites: result}))
-  }
+  // favoriteFetch = () => {
+  //   fetch(`${favoritesURL}/`, {
+  //     method: 'GET',
+  //     headers: {
+  //       'Authorization': `Bearer ${localStorage.token}`
+  //     }
+  //   })
+  //   .then(response => response.json())
+  //   .then(result => this.setState({favorites: result}))
+  // }
 
   componentDidMount(){
     if(localStorage.token){
@@ -88,20 +91,21 @@ class App extends Component {
     }
   }
 
-  // componentDidUpdate(){
-  //   if(localStorage.token && this.state.allHomes.length === 0) {
-  //     this.fetchModels()
-  //   }
-  // }
-
   addToFavorites = (home, user) => {
     const favoriteObject = {home: home.id, user: user.id}
-    // const homeObject = {home}
+    const homeObject = {...home, users: [...home.users, user]}
+
+    const allHomes = this.state.filteredHomes.map(savedHome => {
+      return savedHome.id !== home.id
+        ? savedHome
+        : homeObject
+    })
 
     this.setState({
       favorites: [...this.state.favorites, favoriteObject],
-      // allHomes: [...this.state.allHomes, home]
+      filteredHomes: allHomes
     })
+
       fetch(`${favoritesURL}/`, {
         method:'POST',
         headers: {
@@ -154,14 +158,15 @@ class App extends Component {
     return fetch(loginURL, {
       method: "POST",
       headers: {
+        'Authorization': `Bearer ${localStorage.token}`,
+        'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify( user )
     })
     .then(response => response.json())
-    .then(result => {localStorage.setItem('token', result.access)
-      this.setState({user: result})
-    })
+    .then(result => {localStorage.setItem('token', result.access)})
+    .then(() => this.fetchModels())
   }
 
   logout = () => {
@@ -199,14 +204,17 @@ class App extends Component {
         <Route path='/user-profile'>
           <ProfilePage 
             user={this.state.user}
+            favorites={this.state.favorites}
             allUsers={this.state.allUsers}
             allHomes={this.state.allHomes} 
-            favorites={this.state.favorites}
+            fetchModels={this.fetchModels}
+            userFetch={this.userFetch}
             profileFetch={this.profileFetch}
-            favoriteFetch={this.favoriteFetch}
-            homeFetch={this.homeFetch}
             deleteFavorite={this.deleteFavorite}
-            updateProfile={this.updateProfile}
+            // profileFetch={this.profileFetch}
+            // favoriteFetch={this.favoriteFetch}
+            // homeFetch={this.homeFetch}
+            // updateProfile={this.updateProfile}
           />
         </Route>
 
