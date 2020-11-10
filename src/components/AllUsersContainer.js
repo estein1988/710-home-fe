@@ -15,7 +15,7 @@ class AllUsersContainer extends Component {
 
         return (
             <div>
-                <div className="ui huge inverted blue secondary pointing menu">
+                <div className="ui large inverted blue secondary pointing menu">
                     <div className="header item">
                         {this.props.user.username} 
                     </div>

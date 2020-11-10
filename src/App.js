@@ -178,66 +178,62 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-      <Switch>
+        <Switch>
 
-        <PrivateRoute 
-          exact path='/' 
-          user={this.state.user}
-          allUsers={this.state.allUsers}
-          allHomes={this.state.filteredHomes}
-          filteredHomes={this.state.filteredHomes}
-          favorites={this.state.favorites}
-          clickAction={this.addToFavorites}
-          profileFetch={this.profileFetch}
-          favoriteFetch={this.favoriteFetch}
-          homeFetch={this.homeFetch}
-          filterListings={this.filterListings}
-          logout={this.logout}
-        />
-
-        <Route path='/rates'>
-          <MortgageRates 
-            logout={this.logout}
+          <PrivateRoute 
+            exact path='/' 
             user={this.state.user}
-          />
-        </Route>
-
-        <Route path='/user-profile'>
-          <ProfilePage 
-            user={this.state.user}
-            favorites={this.state.favorites}
             allUsers={this.state.allUsers}
-            allHomes={this.state.allHomes} 
-            fetchModels={this.fetchModels}
-            userFetch={this.userFetch}
+            allHomes={this.state.filteredHomes}
+            filteredHomes={this.state.filteredHomes}
+            favorites={this.state.favorites}
+            clickAction={this.addToFavorites}
             profileFetch={this.profileFetch}
-            deleteFavorite={this.deleteFavorite}
-            // profileFetch={this.profileFetch}
             // favoriteFetch={this.favoriteFetch}
-            // homeFetch={this.homeFetch}
-            // updateProfile={this.updateProfile}
+            homeFetch={this.homeFetch}
+            filterListings={this.filterListings}
+            logout={this.logout}
           />
-        </Route>
 
-        <Route path='/all-users'>
-          <AllUsersContainer
-            allUsers={this.state.filteredUsers}
-            filterUsers={this.filterUsers}
-            user={this.state.user}
-          />
-        </Route>
+          <Route path='/rates'>
+            <MortgageRates 
+              logout={this.logout}
+              user={this.state.user}
+            />
+          </Route>
 
-        <Route path='/register'>
-          <SignUp 
-          />
-        </Route>
+          <Route path='/user-profile'>
+            <ProfilePage 
+              user={this.state.user}
+              favorites={this.state.favorites}
+              allHomes={this.state.allHomes} 
+              fetchModels={this.fetchModels}
+              deleteFavorite={this.deleteFavorite}
+              // allUsers={this.state.allUsers}
+              // userFetch={this.userFetch}
+              // profileFetch={this.profileFetch}
+            />
+          </Route>
 
-        <Route 
-          path='/login' 
-          render={(props) => <Login {...props} login={this.login} />} />
-        <Route render={() => <Redirect to="/" /> } />
-        
-      </Switch>
+          <Route path='/all-users'>
+            <AllUsersContainer
+              allUsers={this.state.filteredUsers}
+              filterUsers={this.filterUsers}
+              user={this.state.user}
+            />
+          </Route>
+
+          <Route 
+            path='/login' 
+            render={(props) => <Login {...props} login={this.login} />} />
+          <Route render={() => <Redirect to="/" /> } />
+
+          <Route path='/register'>
+            <SignUp 
+            />
+          </Route>
+          
+        </Switch>
       </div>
     );
   }
