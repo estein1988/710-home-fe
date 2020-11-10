@@ -33,7 +33,8 @@ import Typography from '@material-ui/core/Typography';
                 {favorite.home.line}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-            Single family home priced at ${favorite.home.price}. {favorite.home.beds} beds and {favorite.home.baths} baths. Located in {favorite.home.city}'s South Denver neighborhood. 
+                {favorite.home.city} {favorite.home.state} {favorite.home.postal_code}
+                {/* Priced at ${favorite.home.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}. {favorite.home.beds} beds and {favorite.home.baths} baths. {favorite.home.size.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} {favorite.home.units}. Located in {favorite.home.city}'s {favorite.home.neighborhood_name} neighborhood. */}
             </Typography>
             </CardContent>
         </CardActionArea>
@@ -45,3 +46,4 @@ import Typography from '@material-ui/core/Typography';
         </Card>
     );
 }
+

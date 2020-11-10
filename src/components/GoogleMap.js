@@ -5,7 +5,7 @@ import green_icon from '../assets/green_icon_new.png'
 
 
 const mapStyles = {
-    width: '90%',
+    width: '70%',
     height: '60vh',
 }
 
@@ -37,12 +37,12 @@ export class MapContainer extends Component {
         return (
             <Map
                 google={this.props.google}
-                zoom={10.5}
+                zoom={11}
                 style={mapStyles}
                 initialCenter={
                     {
-                        lat: 39.79,
-                        lng: -104.9
+                        lat: 39.75,
+                        lng: -105
                     }
                 }
             >
@@ -50,11 +50,12 @@ export class MapContainer extends Component {
                 <Marker 
                     onClick={this.onMarkerClick}
                     key={home.id}
+                    image={home.thumbnail}
                     street={home.line}
                     city={home.city}
                     state={home.state}
                     zip={home.postal_code}
-                    price={home.price}
+                    price={home.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                     position={{
                         lat: home.lat,
                         lng: home.lon
@@ -73,9 +74,10 @@ export class MapContainer extends Component {
                 <div>
                     <h3>
                         {this.state.selectedPlace.street}<br></br>
-                        {this.state.selectedPlace.city}, {this.state.selectedPlace.state}, {this.state.selectedPlace.zip}
+                        {this.state.selectedPlace.city}, {this.state.selectedPlace.state} {this.state.selectedPlace.zip}
                     </h3>
-                        <p>${this.state.selectedPlace.price}</p>
+                    <p>${this.state.selectedPlace.price}</p>
+                    <img class="ui small centered circular image" src={this.state.selectedPlace.image} alt=""></img>
                 </div>
             </InfoWindow>
         </Map>

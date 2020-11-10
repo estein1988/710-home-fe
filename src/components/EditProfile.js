@@ -34,7 +34,7 @@ export default class EditProfile extends Component {
                     <Link to='/user-profile'>My Profile</Link>
                 </div>
                 <div className="header item">
-                    <i className="user icon"></i>
+                    <i className="user plus icon"></i>
                     <Link to='/all-users'>All Users</Link>
                 </div>
                 <div className="header item">
@@ -83,7 +83,7 @@ export default class EditProfile extends Component {
                                         </div>
                                     </form>
                                     <input className="ui black button" type="submit" value="Submit Changes"/>
-                                    <button onClick={this.props.handleToggle}>Toggle Back</button>
+                                    <button className="ui green button" onClick={this.props.handleToggle}>Go Back</button>
                                 </div>
                             {/* {this.props.favorites.length} favorites */}
                             {/* <button className="edit-button" onClick={handleClick}>Edit Profile</button> */}

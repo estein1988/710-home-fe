@@ -16,7 +16,7 @@ export default class Home extends Component {
                     </div>
                     <div className="blue header item">
                         <i className="home icon"></i>
-                        <Link to='/'>Home</Link>
+                        <Link to='/'>Home Listings</Link>
                     </div>
                     <div className="header item">
                         <i className="calculator icon"></i>
@@ -27,7 +27,7 @@ export default class Home extends Component {
                         <Link to='/user-profile'>My Profile</Link>
                     </div>
                     <div className="header item">
-                        <i className="user icon"></i>
+                        <i className="user plus icon"></i>
                         <Link to='/all-users'>All Users</Link>
                     </div>
                     <div className="header item">

@@ -58,7 +58,6 @@ class MortageRates extends Component {
     getMortgageRates = () => {
         const url = `https://rapidapi.p.rapidapi.com/finance/rates?loc=${this.state.zipCode}`
         fetch(url,{method: 'GET', headers: {
-            
             "x-rapidapi-host": "realtor.p.rapidapi.com"
         },
     })
@@ -69,7 +68,6 @@ class MortageRates extends Component {
     getCalculator = () => {
         const url = `https://rapidapi.p.rapidapi.com/mortgage/calculate?hoi=${this.state.hoi}&tax_rate=${this.state.tax_rate}&downpayment=${this.state.down_payment}&price=${this.state.price}&term=${this.state.term}&rate=${this.state.rate}`
         fetch(url, {"method": "GET", headers: {
-            
             "x-rapidapi-host": "realtor.p.rapidapi.com"
         }
     })
@@ -80,7 +78,6 @@ class MortageRates extends Component {
     getCalculatorSplit = () => {
         const url = `https://rapidapi.p.rapidapi.com/mortgage/calculate?hoi=${this.state.hoi_split}&tax_rate=${this.state.tax_rate_split}&downpayment=${this.state.down_payment_split}&price=${this.state.price_split}&term=${this.state.term_split}&rate=${this.state.rate_split}`
         fetch(url, {"method": "GET", headers: {
-            
             "x-rapidapi-host": "realtor.p.rapidapi.com"
         }
     })
@@ -136,11 +133,11 @@ class MortageRates extends Component {
             <div>
                 <div className="ui inverted blue secondary pointing menu">
                     <div className="header item">
-                    {/* {this.props.user.username}  */}
+                    {this.props.user.username} 
                     </div>
                 <div className="blue header item">
                     <i className="home icon"></i>
-                    <Link to='/'>Home</Link>
+                    <Link to='/'>Home Listings</Link>
                 </div>
                 <div className="header item">
                     <i className="calculator icon"></i>
@@ -149,6 +146,10 @@ class MortageRates extends Component {
                 <div className="header item">
                     <i className="user icon"></i>
                     <Link to='/user-profile'>My Profile</Link>
+                </div>
+                <div className="header item">
+                        <i className="user plus icon"></i>
+                        <Link to='/all-users'>All Users</Link>
                 </div>
                 <div className="header item">
                     <i onClick={this.props.logout} className="sign out icon"></i>

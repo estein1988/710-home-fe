@@ -25,11 +25,11 @@ export default function ProfilePage({fetchModels, user, favorites, deleteFavorit
         <div>
         <div className="ui inverted blue secondary pointing menu">
             <div className="header item">
-                {/* {this.props.user.username}  */}
+                {user.username} 
             </div>
             <div className="blue header item">
                 <i className="home icon"></i>
-                <Link to='/'>Home</Link>
+                <Link to='/'>Home Listings</Link>
             </div>
             <div className="header item">
                 <i className="calculator icon"></i>
@@ -40,7 +40,7 @@ export default function ProfilePage({fetchModels, user, favorites, deleteFavorit
                 <Link to='/user-profile'>My Profile</Link>
             </div>
             <div className="header item">
-                <i className="user icon"></i>
+                <i className="user plus icon"></i>
                 <Link to='/all-users'>All Users</Link>
             </div>
             <div className="header item">
@@ -65,19 +65,19 @@ export default function ProfilePage({fetchModels, user, favorites, deleteFavorit
                         <div class="extra content">
                             <a>
                                 <i class="star icon"></i>
-                                {/* {user.favorites.length} favorites */}
+                                {favorites.length} favorites
                             </a>
                             {/* <button className="edit-button" onClick={handleClick}>Edit Profile</button> */}
-                            <button onClick={handleToggle}>Edit Profile</button>
+                            <button id="edit-profile-button" class="ui green button" onClick={handleToggle}>Edit Profile</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="sixteen wide column">
-                <div className="favorites-container">
-                    {user.favorites ? renderFavorites() : null}
-                </div>
+            <div className="favorites-container">
+                {user.favorites ? renderFavorites() : null}
+            </div>
         </div>
     </div>
     )

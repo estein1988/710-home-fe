@@ -7,7 +7,7 @@
 }
 
 .googleMap{
-  padding-left: 5rem;
+  padding-left: 15rem;
   margin: 1rem;
   display: flex;
   height: 40%;
@@ -15,9 +15,11 @@
   justify-content: space-around;
 }
 
-/* .homeSearchBar{
-  padding-top: 37rem;
-} */
+#home-search-bar{
+  padding: 1rem;
+  border: 2px solid black;
+  background-color: whitesmoke
+}
 
 .leaflet-container { 
   margin: 1rem; 
@@ -56,7 +58,7 @@
 
 .login-container {
   margin: 1rem;
-}
+} 
 
 .individual-calculator, .split-calculator {
   padding: 1rem;
@@ -102,4 +104,9 @@
 
 .edit-button{
   background-color: blue;
+}
+
+#edit-profile-button{
+  margin-left: 79px;
+  padding: 10px
 }

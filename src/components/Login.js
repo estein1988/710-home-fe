@@ -30,8 +30,6 @@ export default class Login extends Component {
                 <div className='login-picture'>
                     <img className="cover-photo" src={coverphoto} alt="" />
                 </div>
-
-                <div className='login-form'>
                     <form className="ui form" onSubmit={this.handleSubmit}>
                         <div class="four fields">
                             
@@ -53,8 +51,6 @@ export default class Login extends Component {
                             </button>
                         </div>
                     </form>
-                </div>
-
             </div>
         )
     }

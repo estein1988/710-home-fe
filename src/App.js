@@ -198,6 +198,7 @@ class App extends Component {
         <Route path='/rates'>
           <MortgageRates 
             logout={this.logout}
+            user={this.state.user}
           />
         </Route>
 
@@ -222,11 +223,12 @@ class App extends Component {
           <AllUsersContainer
             allUsers={this.state.filteredUsers}
             filterUsers={this.filterUsers}
+            user={this.state.user}
           />
         </Route>
 
         <Route path='/register'>
-          <SignUp
+          <SignUp 
           />
         </Route>
 

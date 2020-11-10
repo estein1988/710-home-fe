@@ -1,5 +1,4 @@
 import React from 'react';
-// import UserFavoritesCard from './UserFavoritesCard'
 import UserFavoritesCardTwo from './UserFavoritesCardTwo'
 import UserModal from './UserModal'
 import { makeStyles } from '@material-ui/core/styles';
@@ -15,6 +14,7 @@ import clsx from 'clsx';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
 import Modal from '@material-ui/core/Modal';
+var Sentencer = require('sentencer');
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -104,8 +104,10 @@ export default function HouseCard({home, allHomes, user, clickAction, favorites,
                 <Typography gutterBottom variant="h6" component="h6">
                     {home.city} - {home.state} - {home.postal_code}
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                    Single family home priced at ${home.price}. {home.beds} beds and {home.baths} baths. Located in {home.city}'s South Denver neighborhood.  
+                <Typography variant="body" color="textSecondary" component="p">
+                    A { Sentencer.make( " {{adjective}} " ) } {home.prop_type.replace(/_/g, " ")}. Priced at ${home.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}. {home.beds} beds and {home.baths} baths. {home.size.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} {home.units}. Located in {home.city}'s {home.neighborhood_name} neighborhood.
+                    <br></br>
+                    <br></br><a href={home.href}>Virtual Tour</a>
                 </Typography>
                 </CardContent>
             </CardActionArea>
