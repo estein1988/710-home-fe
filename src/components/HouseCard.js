@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: 345,
     },
     media: {
-        height: 140,
+        height: 200,
     },
     expand: {
         transform: 'rotate(0deg)',
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.background.paper,
         border: '2px solid #000',
         boxShadow: theme.shadows[5],
-        padding: theme.spacing(2, 4, 3),
+        padding: theme.spacing(2, 4, 3)
     },
 }))
 
@@ -90,6 +90,7 @@ export default function HouseCard({home, allHomes, user, clickAction, favorites,
         )
         
         return (
+            <div className="house-cards">
             <Card className={classes.root}>
             <CardActionArea>
                 <CardMedia
@@ -107,7 +108,7 @@ export default function HouseCard({home, allHomes, user, clickAction, favorites,
                 <Typography variant="body" color="textSecondary" component="p">
                     A { Sentencer.make( " {{adjective}} " ) } {home.prop_type.replace(/_/g, " ")}. Priced at ${home.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}. {home.beds} beds and {home.baths} baths. {home.size.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} {home.units}. Located in {home.city}'s {home.neighborhood_name} neighborhood.
                     <br></br>
-                    <br></br><a href={home.href}>Virtual Tour</a>
+                    <br></br><a href={home.href} target="_blank">Virtual Tour</a>
                 </Typography>
                 </CardContent>
             </CardActionArea>
@@ -162,5 +163,6 @@ export default function HouseCard({home, allHomes, user, clickAction, favorites,
                 </CardContent>
             </Collapse>
         </Card>
+        </div>
         )
     }

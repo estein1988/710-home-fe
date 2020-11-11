@@ -11,10 +11,13 @@ export default class Home extends Component {
         return(
             <div>
                 <div className="ui large inverted blue secondary pointing menu">
+                    <div id="avatar-image">
+                        <img class="ui mini circular image" src={this.props.user.picture} alt=""></img>
+                    </div>
                     <div className="header item">
                         {this.props.user.username} 
                     </div>
-                    <div className="blue header item">
+                    <div className="header item">
                         <i className="home icon"></i>
                         <Link to='/'>Home Listings</Link>
                     </div>
@@ -44,7 +47,8 @@ export default class Home extends Component {
 
                 <div className="googleMap">
                     <GoogleMap 
-                        allHomes={this.props.allHomes} 
+                        allHomes={this.props.allHomes}
+                        user={this.props.user}
                     />
                 </div>
 

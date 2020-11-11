@@ -242,7 +242,7 @@ class MortageRates extends Component {
                     <div class="nine wide column">
                         <h2 className='chartHeader'>Individual Mortgage</h2>
                         <ChartContainer />
-                        <h2 className='chartHeader'>7-10 Split</h2>
+                        <h2 className='chartHeader'>7-10 Home Split</h2>
                         <ChartContainerSplit />
                     </div>
 

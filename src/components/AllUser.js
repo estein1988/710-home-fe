@@ -18,7 +18,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const useStyles = makeStyles((theme) => ({
 root: {
-    maxWidth: 345,
+    maxWidth: 300,
 },
 media: {
     height: 0,
@@ -51,8 +51,8 @@ return (
     <Card className={classes.root}>
         <CardHeader
         avatar={
-            <Avatar aria-label="recipe" className={classes.avatar}>
-            R
+            <Avatar aria-label="avatar" className={classes.avatar}>
+                {user.name[0]}
             </Avatar>
         }
         action={
@@ -69,9 +69,9 @@ return (
         title="user-picture"
         />
         <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-            {user.hobbies}<br></br>
-            {user.budget} / month
+        <Typography variant="body" color="textPrimary" component="p">
+            Enjoys {user.hobbies}<br></br>
+            Ready to purchase a ${user.budget.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} homewith someone.
         </Typography>
         </CardContent>
         <CardActions disableSpacing>

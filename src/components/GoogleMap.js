@@ -3,7 +3,6 @@ import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import red_icon from '../assets/red_icon.png'
 import green_icon from '../assets/green_icon_new.png'
 
-
 const mapStyles = {
     width: '70%',
     height: '60vh',
@@ -55,12 +54,14 @@ export class MapContainer extends Component {
                     city={home.city}
                     state={home.state}
                     zip={home.postal_code}
-                    price={home.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    user={this.props.user}
+                    priceString={home.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    priceInteger={home.price}
                     position={{
                         lat: home.lat,
                         lng: home.lon
                     }}
-                    icon={home.price < 500000
+                    icon={home.price < this.props.user.budget
                         ? {url: green_icon, scaledSize: new window.google.maps.Size(28, 28)}
                         : {url: red_icon, scaledSize: new window.google.maps.Size(28, 28)}
                     }
@@ -76,12 +77,11 @@ export class MapContainer extends Component {
                         {this.state.selectedPlace.street}<br></br>
                         {this.state.selectedPlace.city}, {this.state.selectedPlace.state} {this.state.selectedPlace.zip}
                     </h3>
-                    <p>${this.state.selectedPlace.price}</p>
+                    <p>${this.state.selectedPlace.priceString}</p>
                     <img class="ui small centered circular image" src={this.state.selectedPlace.image} alt=""></img>
                 </div>
             </InfoWindow>
         </Map>
-        
         )   
     }
 }

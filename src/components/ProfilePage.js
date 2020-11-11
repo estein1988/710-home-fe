@@ -24,6 +24,9 @@ export default function ProfilePage({fetchModels, user, favorites, deleteFavorit
     const profileCard = () => (
         <div>
         <div className="ui large inverted blue secondary pointing menu">
+            <div id="avatar-image">
+                <img class="ui mini circular image" src={this.props.user.picture} alt=""></img>
+            </div>
             <div className="header item">
                 {user.username} 
             </div>

@@ -74,17 +74,6 @@ class App extends Component {
     })
   }
 
-  // favoriteFetch = () => {
-  //   fetch(`${favoritesURL}/`, {
-  //     method: 'GET',
-  //     headers: {
-  //       'Authorization': `Bearer ${localStorage.token}`
-  //     }
-  //   })
-  //   .then(response => response.json())
-  //   .then(result => this.setState({favorites: result}))
-  // }
-
   componentDidMount(){
     if(localStorage.token){
       this.fetchModels()
@@ -189,10 +178,10 @@ class App extends Component {
             favorites={this.state.favorites}
             clickAction={this.addToFavorites}
             profileFetch={this.profileFetch}
-            // favoriteFetch={this.favoriteFetch}
             homeFetch={this.homeFetch}
             filterListings={this.filterListings}
             logout={this.logout}
+            // favoriteFetch={this.favoriteFetch}
           />
 
           <Route path='/rates'>

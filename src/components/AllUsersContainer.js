@@ -16,6 +16,9 @@ class AllUsersContainer extends Component {
         return (
             <div>
                 <div className="ui large inverted blue secondary pointing menu">
+                    <div id="avatar-image">
+                        <img class="ui mini circular image" src={this.props.user.picture} alt=""></img>
+                    </div>
                     <div className="header item">
                         {this.props.user.username} 
                     </div>
