@@ -59,6 +59,14 @@
   margin: 1.5rem;
 }
 
+.all-users-cards{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1.5rem;
+}
+
 .cover-photo{
   min-height: 100%;
   min-width: 100%;
@@ -125,6 +133,10 @@
 }
 
 #avatar-image{
-  padding-top: 0.6rem;
+  padding-top: 1.1rem;
   padding-left: 0.6rem
+}
+
+#register-button {
+  color: white
 }

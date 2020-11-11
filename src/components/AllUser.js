@@ -48,6 +48,7 @@ export default function AllUser({user}) {
     };
 
 return (
+    <div className="all-users-cards">
     <Card className={classes.root}>
         <CardHeader
         avatar={
@@ -106,5 +107,6 @@ return (
         </CardContent>
         </Collapse>
     </Card>
+    </div>
     )
 }

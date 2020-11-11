@@ -14,7 +14,7 @@ export default function UserModal({user}) {
                                 <span class="date">{user.email}</span>
                             </div>
                             <div class="description">
-                                {user.name} is {user.marital_status} and enjoys {user.hobbies}. They are a {user.occupation}. Describes themselves as having a {user.social_level} life, with a monthly budget of {user.budget} per month. Current lease end's {user.lease_end}.
+                                {user.name} is {user.marital_status} and enjoys {user.hobbies}. They are a {user.occupation}. Describes themselves as having a {user.social_level} life, with a budget of ${user.budget.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}. Current lease end's {user.lease_end}.
                             </div>
                         </div>
                         <div class="extra content">
