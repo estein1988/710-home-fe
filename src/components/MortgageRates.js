@@ -132,9 +132,12 @@ class MortageRates extends Component {
         return (
             <div>
                 <div className="ui large inverted blue secondary pointing menu">
-                    <div className="header item">
+                <div id="avatar-image">
+                    <img class="ui mini circular image" src={this.props.user.picture} alt=""></img>
+                </div>
+                <div className="header item">
                     {this.props.user.username} 
-                    </div>
+                </div>
                 <div className="blue header item">
                     <i className="home icon"></i>
                     <Link to='/'>Home Listings</Link>

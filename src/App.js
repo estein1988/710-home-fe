@@ -4,7 +4,8 @@ import Login from './components/Login'
 import AllUsersContainer from './components/AllUsersContainer'
 import MortgageRates from './components/MortgageRates'
 import ProfilePage from './components/ProfilePage'
-import SignUp from './components/SignUp'
+// import SignUp from './components/SignUp'
+import Register from './components/Register'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import './App.css';
 
@@ -212,15 +213,15 @@ class App extends Component {
             />
           </Route>
 
+          <Route path='/register'>
+            <Register 
+            />
+          </Route>
+
           <Route 
             path='/login' 
             render={(props) => <Login {...props} login={this.login} />} />
           <Route render={() => <Redirect to="/" /> } />
-
-          <Route path='/register'>
-            <SignUp 
-            />
-          </Route>
           
         </Switch>
       </div>

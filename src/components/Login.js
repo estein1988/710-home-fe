@@ -25,6 +25,7 @@ export default class Login extends Component {
 
     render(){
         return(
+            
             <div className='login-container'>
 
                 <div className='login-picture'>
@@ -46,8 +47,7 @@ export default class Login extends Component {
                             </button>
 
                             <button class="ui red button">
-                                <Link to='/register'></Link>
-                                Register New Account
+                                <Link to='/register'>Register New Account</Link>
                             </button>
                         </div>
                     </form>
