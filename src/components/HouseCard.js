@@ -117,12 +117,12 @@ export default function HouseCard({home, allHomes, user, clickAction, favorites,
                     <FavoriteIcon onClick={() => clickAction(home, user)} />
                 </IconButton>
                 <IconButton
-                        className={clsx(classes.expand, {
-                            [classes.expandOpen]: expanded,
-                        })}
-                        onClick={handleExpandClick}
-                        aria-expanded={expanded}
-                        aria-label="show more"
+                    className={clsx(classes.expand, {
+                        [classes.expandOpen]: expanded,
+                    })}
+                    onClick={handleExpandClick}
+                    aria-expanded={expanded}
+                    aria-label="show more"
                 >
                 <ExpandMoreIcon />
                 </IconButton>

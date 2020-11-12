@@ -71,8 +71,13 @@ return (
         />
         <CardContent>
         <Typography variant="body" color="textPrimary" component="p">
-            Enjoys {user.hobbies}<br></br>
-            Ready to purchase a ${user.budget.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} homewith someone.
+            Enjoys {user.hobbies}
+            <br></br>
+            <br></br>
+            Ready to purchase a ${user.budget.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} home with someone.
+            <br></br>
+            <br></br>
+            Current lease ends {user.lease_end}
         </Typography>
         </CardContent>
         <CardActions disableSpacing>

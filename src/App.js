@@ -4,7 +4,6 @@ import Login from './components/Login'
 import AllUsersContainer from './components/AllUsersContainer'
 import MortgageRates from './components/MortgageRates'
 import ProfilePage from './components/ProfilePage'
-// import SignUp from './components/SignUp'
 import Register from './components/Register'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import './App.css';
@@ -29,7 +28,6 @@ class App extends Component {
   fetchModels = () => {
     this.homeFetch()
     this.profileFetch()
-    // this.favoriteFetch()
     this.userFetch()
   }
 
@@ -182,7 +180,6 @@ class App extends Component {
             homeFetch={this.homeFetch}
             filterListings={this.filterListings}
             logout={this.logout}
-            // favoriteFetch={this.favoriteFetch}
           />
 
           <Route path='/rates'>
@@ -199,9 +196,6 @@ class App extends Component {
               allHomes={this.state.allHomes} 
               fetchModels={this.fetchModels}
               deleteFavorite={this.deleteFavorite}
-              // allUsers={this.state.allUsers}
-              // userFetch={this.userFetch}
-              // profileFetch={this.profileFetch}
             />
           </Route>
 
