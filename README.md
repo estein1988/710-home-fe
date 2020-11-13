@@ -3,8 +3,8 @@
 7-10 Home Split is a developed as a full CRUD application to help users connect with each other in the Denver area to purchase a home together. As with many metropolitan areas in the United States Denver real estate prices have continued to skyrocket. Even in 2020, the year of the pandemic and unstable economic conditions, home prices have continued on an upward trajectory. This prices many millennials and Gen-xers out of the market, having them gain little to no equity in the early-stages of their career. This app is intended as a way for them to connect with each other based on liked-budgets and hobbies. 
 
 ## Built With
-Frontend: React, Google Maps API, Semantic UI, Material UI<br>
-Backend: Django/Python, Django Rest Framework, Django Simple-JWT
+Frontend: React 17.0.1, Google Maps API, Semantic UI, Material UI<br>
+Backend: Python 3.7.9, Django v3.1.2, Django Rest Framework v3.12.1, Django Rest Framework Simple JWT 4.4.0, PostgreSQL v13.0
 
 ### Backend Repository
 https://github.com/estein1988/710_home_split_be
@@ -47,7 +47,7 @@ The user can view their individual profile and make updates if they need to base
 
 1. Fork and/or clone this repo & the backend repo: [Backend Repo](https://github.com/estein1988/710_home_split_be)
 2. Create PostgreSQL database: `createdb homesplit`
-3. Migrate database tables in backend: `python3 manage.py migrate` and `python3 manage.py loaddata homes`
+3. Migrate database tables in backend: `python3 manage.py migrate` and `python3 manage.py loaddata home`
 4. Run backend server: `python3 manage.py runserver`
 5. Install dependencies on frontend: `npm install`
 6. Run frontend server: `npm start`

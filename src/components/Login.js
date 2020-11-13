@@ -39,7 +39,7 @@ export default class Login extends Component {
                             </div>
 
                             <div class="field">
-                                <input placeholder='Password' name='password' id='password' value={this.state.password} onChange={this.handleChange} />
+                                <input type="password" placeholder='Password' name='password' id='password' value={this.state.password} onChange={this.handleChange} />
                             </div>
 
                             <button class="ui primary button" type='submit' id='submit' value='Login'>
