@@ -26,8 +26,7 @@ The listings page shows 100 live listings through the Realator.com API. Each lis
 <br>
 
 ![Alt Text](https://media.giphy.com/media/XIaQdDJB4YB8MMBFgw/giphy.gif)
-<br>
-<br>
+<br></br>
 ![Alt Text](https://media.giphy.com/media/AvQlwWiLFWHujfJCkI/giphy.gif)
 
 ### Mortgage Calculator
