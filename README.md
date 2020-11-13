@@ -23,7 +23,7 @@ New users can register and gain access through a local storage JWT access token.
 
 ### Listings 
 The listings page shows 100 live listings through the Realator.com API. Each listing is plotted dynamically on the Google Map interface. Users can run a search through each listing's address, which filters down both the cards and the map icons. The green icons on the map are under the user's budget, while the red icons are over their budget. Users can like listings, and see which other users have liked the same listing. Finally, after toggling-down the listing card, the user can pop-up a modal which shows all other users who have liked the same listing with their profile information. 
-<br>
+<br></br>
 ![Alt Text](https://media.giphy.com/media/XIaQdDJB4YB8MMBFgw/giphy.gif)
 <br></br>
 ![Alt Text](https://media.giphy.com/media/AvQlwWiLFWHujfJCkI/giphy.gif)
