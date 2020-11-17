@@ -10,7 +10,7 @@ Backend: Python 3.7.9, Django v3.1.2, Django Rest Framework v3.12.1, Django Rest
 https://github.com/estein1988/710_home_split_be
 
 ### Demo Video
-[Demo Video](https://www.youtube.com/watch?v=qRIJAES9l9E&feature=youtu.be)
+[Demo Video](https://www.youtube.com/watch?v=ijFS5tFKtY4)
 
 ### API Sources
 - Realtor.com API for Real Estate Listings: [Realtor API](https://rapidapi.com/apidojo/api/realtor/endpoints)

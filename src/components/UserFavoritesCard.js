@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-class UserFavoritesTwoCard extends Component {
+class UserFavoritesCard extends Component {
 
     render() {
         return (
@@ -14,4 +14,4 @@ class UserFavoritesTwoCard extends Component {
     }
 }
 
-export default UserFavoritesTwoCard;
+export default UserFavoritesCard;

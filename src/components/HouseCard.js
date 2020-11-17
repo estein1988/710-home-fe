@@ -1,5 +1,5 @@
 import React from 'react';
-import UserFavoritesCardTwo from './UserFavoritesCardTwo'
+import UserFavoritesCard from './UserFavoritesCard'
 import UserModal from './UserModal'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -79,7 +79,7 @@ export default function HouseCard({home, allHomes, user, clickAction, favorites,
         };
 
         const renderUsers = () => home.users.map(
-            user => <UserFavoritesCardTwo
+            user => <UserFavoritesCard
                 key={user.id}
                 user={user}
                 favorites={favorites}

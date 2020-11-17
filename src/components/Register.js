@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import registerphoto from './registerphoto.jpg'
+
 const usersURL = 'http://localhost:8000/users/'
 
 class Register extends Component {
@@ -32,7 +34,6 @@ class Register extends Component {
         fetch(usersURL, {
             method:'POST',
             headers: {
-                // 'Authorization': `Bearer ${localStorage.token}`,
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
@@ -54,14 +55,18 @@ class Register extends Component {
             )
         })
     }
-
+    
     render() {
         return (
             <div>
-                <div class="ui grid">
-                    <div class="five wide column">
+                <div className='login-picture'>
+                    <img className="cover-photo" src={registerphoto} alt="" />
+                </div>
+                <div id="register-form" class="ui grid">
+                    <div class="three wide column">
                         <div className="individual-calculator">        
                             <form className="ui form" onSubmit={this.handleSubmit}>
+                                <h2>Register with 7-10:</h2>
 
                                 <div className="field">
                                     <label>Username</label>
@@ -133,7 +138,7 @@ class Register extends Component {
                                     <input type="text" name="picture" value={this.state.picture} onChange={this.handleChange} />
                                 </div>
 
-                                <input className="ui black button" type="submit" value="Register User"/>
+                                <input className="ui black button" type="submit" value="Register New User"/>
                             </form>
                         </div>
                     </div>
@@ -144,3 +149,7 @@ class Register extends Component {
 }
 
 export default Register;
+
+
+
+// import React from 'react';

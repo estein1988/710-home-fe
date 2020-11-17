@@ -6,6 +6,7 @@ import AllUser from './AllUser'
 class AllUsersContainer extends Component {
 
     render() {
+        
         const renderUsers = () => this.props.allUsers.map(
             user => <AllUser
                 key={user.id}

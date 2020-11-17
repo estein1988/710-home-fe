@@ -140,3 +140,9 @@
 #register-button {
   color: white
 }
+
+#register-form{
+  padding: 1rem;
+  border: 2px solid black;
+  background-color: whitesmoke
+}
