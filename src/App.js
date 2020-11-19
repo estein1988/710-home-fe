@@ -137,10 +137,10 @@ class App extends Component {
     this.setState({filteredUsers: filterUsers})
   }
 
-  // updateProfile = (updatedProfile) => {
-  //   let updateUser = this.state.allUsers.map(user => user.id === updatedProfile.id ? updatedProfile : user)
-  //   this.setState({updateUser})
-  // }
+  updateProfile = (updatedProfile) => {
+    let updateUser = this.state.allUsers.map(user => user.id === updatedProfile.id ? updatedProfile : user)
+    this.setState({updateUser})
+  }
 
   login = (user) => {
     return fetch(loginURL, {
