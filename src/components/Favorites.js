@@ -35,7 +35,7 @@ import Typography from '@material-ui/core/Typography';
             <Typography gutterBottom variant="h6" component="h6">
                 {favorite.home.city} - {favorite.home.state} - {favorite.home.postal_code}
             </Typography>
-            <Typography variant="body" color="textSecondary" component="p">
+            <Typography variant="body1" color="textSecondary" component="body1">
                 ${favorite.home.price}
                 <br></br>
                 {favorite.home.beds} beds {favorite.home.baths} baths

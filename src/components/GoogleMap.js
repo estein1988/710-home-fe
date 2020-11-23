@@ -61,7 +61,7 @@ export class MapContainer extends Component {
                         lat: home.lat,
                         lng: home.lon
                     }}
-                    icon={home.price < this.props.user.budget
+                    icon={home.price < this.props.user.budget.replace(/\$/g,'').replace(/,/g,'')
                         ? {url: green_icon, scaledSize: new window.google.maps.Size(28, 28)}
                         : {url: red_icon, scaledSize: new window.google.maps.Size(28, 28)}
                     }
@@ -78,7 +78,7 @@ export class MapContainer extends Component {
                         {this.state.selectedPlace.city}, {this.state.selectedPlace.state} {this.state.selectedPlace.zip}
                     </h3>
                     <p>${this.state.selectedPlace.priceString}</p>
-                    <img class="ui small centered circular image" src={this.state.selectedPlace.image} alt=""></img>
+                    <img className="ui small centered circular image" src={this.state.selectedPlace.image} alt=""></img>
                 </div>
             </InfoWindow>
         </Map>

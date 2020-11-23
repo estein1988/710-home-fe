@@ -74,7 +74,7 @@ return (
             Enjoys {user.hobbies}
             <br></br>
             <br></br>
-            Ready to purchase a ${user.budget.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} home with someone.
+            Ready to purchase a {user.budget.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} home with someone.
             <br></br>
             <br></br>
             Current lease ends {user.lease_end}

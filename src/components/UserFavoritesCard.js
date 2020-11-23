@@ -5,9 +5,9 @@ class UserFavoritesCard extends Component {
     render() {
         return (
             <div>
-                <img class="ui tiny image centered" src={this.props.user.picture}></img>
-                    <div class="middle aligned content">
-                        <a class="header">{this.props.user.email}</a>
+                <img className="ui tiny image centered" src={this.props.user.picture}></img>
+                    <div className="middle aligned content">
+                        <a className="header">{this.props.user.email}</a>
                     </div>
             </div>
         )

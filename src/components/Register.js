@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import registerphoto from './registerphoto.jpg'
-
-const usersURL = 'http://localhost:8000/users/'
+const usersURL = 'https://home-split-7-10.herokuapp.com/users/'
 
 class Register extends Component {
 
@@ -9,18 +8,18 @@ class Register extends Component {
         user: {},
         username: "",
         password: "",
-        email: "",
-        name: "",
-        phone_number: "",
-        social_level: "",
+        email: "your_name@gmail.com",
+        name: "First Last",
+        phone_number: "(303) 555-1234",
+        social_level: "Moderate",
         hobbies: "",
-        budget: "",
-        current_rent: "",
-        income: "",
-        occupation: "",
-        lease_end: "",
-        marital_status: "",
-        picture: "",
+        budget: "$410000",
+        current_rent: "$1200",
+        income: "$80000",
+        occupation: "Software Developer",
+        lease_end: "3/1/2021",
+        marital_status: "Single",
+        picture: "https://www.cheatsheet.com/wp-content/uploads/2019/04/Johns-Avatar.jpg",
     }
 
     handleChange = (event) => {
@@ -62,8 +61,8 @@ class Register extends Component {
                 <div className='login-picture'>
                     <img className="cover-photo" src={registerphoto} alt="" />
                 </div>
-                <div id="register-form" class="ui grid">
-                    <div class="three wide column">
+                <div id="register-form" className="ui grid">
+                    <div className="four wide column">
                         <div className="individual-calculator">        
                             <form className="ui form" onSubmit={this.handleSubmit}>
                                 <h2>Register with 7-10:</h2>
@@ -149,7 +148,3 @@ class Register extends Component {
 }
 
 export default Register;
-
-
-
-// import React from 'react';

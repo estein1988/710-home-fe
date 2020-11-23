@@ -19,7 +19,7 @@ class CardsContainer extends Component {
         )
 
         return (
-                <div class="sixteen wide column">
+                <div className="sixteen wide column">
                     <div className="cards-container">
                         {renderHomes()}
                     </div>

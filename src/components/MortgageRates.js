@@ -7,6 +7,7 @@ import {
 } from '@progress/kendo-react-charts';
 import 'hammerjs'
 import '@progress/kendo-theme-default/dist/all.css'
+import 'dotenv'
 import {Link} from 'react-router-dom'
 
 class MortageRates extends Component {
@@ -58,6 +59,7 @@ class MortageRates extends Component {
     getMortgageRates = () => {
         const url = `https://rapidapi.p.rapidapi.com/finance/rates?loc=${this.state.zipCode}`
         fetch(url,{method: 'GET', headers: {
+            "x-rapidapi-key": process.env.REACT_APP_RAPID_API_KEY,
             "x-rapidapi-host": "realtor.p.rapidapi.com"
         },
     })
@@ -68,6 +70,7 @@ class MortageRates extends Component {
     getCalculator = () => {
         const url = `https://rapidapi.p.rapidapi.com/mortgage/calculate?hoi=${this.state.hoi}&tax_rate=${this.state.tax_rate}&downpayment=${this.state.down_payment}&price=${this.state.price}&term=${this.state.term}&rate=${this.state.rate}`
         fetch(url, {"method": "GET", headers: {
+            "x-rapidapi-key": process.env.REACT_APP_RAPID_API_KEY,
             "x-rapidapi-host": "realtor.p.rapidapi.com"
         }
     })
@@ -78,6 +81,7 @@ class MortageRates extends Component {
     getCalculatorSplit = () => {
         const url = `https://rapidapi.p.rapidapi.com/mortgage/calculate?hoi=${this.state.hoi_split}&tax_rate=${this.state.tax_rate_split}&downpayment=${this.state.down_payment_split}&price=${this.state.price_split}&term=${this.state.term_split}&rate=${this.state.rate_split}`
         fetch(url, {"method": "GET", headers: {
+            "x-rapidapi-key": process.env.REACT_APP_RAPID_API_KEY,
             "x-rapidapi-host": "realtor.p.rapidapi.com"
         }
     })
@@ -133,7 +137,7 @@ class MortageRates extends Component {
             <div>
                 <div className="ui large inverted blue secondary pointing menu">
                 <div id="avatar-image">
-                    <img class="ui mini circular image" src={this.props.user.picture} alt=""></img>
+                    <img className="ui mini circular image" src={this.props.user.picture} alt=""></img>
                 </div>
                 <div className="header item">
                     {this.props.user.username} 
@@ -160,8 +164,8 @@ class MortageRates extends Component {
                 </div>
             </div>
                 
-                <div class="ui centered grid">
-                    <div class="three wide column">
+                <div className="ui centered grid">
+                    <div className="three wide column">
                         <div className="individual-calculator">        
                             <form className="ui form" onSubmit={this.handleSubmit}>
 
@@ -202,7 +206,7 @@ class MortageRates extends Component {
                         <h3 className='chartHeader'>Suggested Income: ${this.state.calculator.monthly_payment * 12 * 3.5}</h3>
                     </div>
                 
-                    <div class="three wide column">
+                    <div className="three wide column">
                         <div className="split-calculator">        
                             <form className="ui form" onSubmit={this.handleSubmit}>
                                 <div className="field">
@@ -242,7 +246,7 @@ class MortageRates extends Component {
                         <h3 className='chartHeader'>Suggested Income: ${this.state.calculator_split.monthly_payment * 12 * 3.5}</h3>
                     </div> 
 
-                    <div class="nine wide column">
+                    <div className="nine wide column">
                         <h2 className='chartHeader'>Individual Mortgage</h2>
                         <ChartContainer />
                         <h2 className='chartHeader'>7-10 Home Split</h2>
@@ -251,7 +255,7 @@ class MortageRates extends Component {
 
                 </div>
 
-                <div class="ui three column grid">
+                <div className="ui three column grid">
                     <div className='rates-container'>
                         <div className="mortgage-rates">        
                             <form className="ui form" onSubmit={this.handleSubmit}>

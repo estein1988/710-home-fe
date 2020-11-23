@@ -8,11 +8,12 @@ import Register from './components/Register'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import './App.css';
 
-const loginURL = 'http://localhost:8000/login/'
-const profileURL = 'http://localhost:8000/profile/'
-const homesURL = 'http://localhost:8000/homes/'
-const usersURL = 'http://localhost:8000/users/'
-const favoritesURL = 'http://localhost:8000/favorites'
+const loginURL = 'https://home-split-7-10.herokuapp.com/login/'
+const profileURL = 'https://home-split-7-10.herokuapp.com/profile/'
+const homesURL = 'https://home-split-7-10.herokuapp.com/homes/'
+const usersURL = 'https://home-split-7-10.herokuapp.com/users/'
+const favoritesURL = 'https://home-split-7-10.herokuapp.com/favorites'
+window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true
 
 class App extends Component {
 
@@ -153,7 +154,11 @@ class App extends Component {
       body: JSON.stringify( user )
     })
     .then(response => response.json())
-    .then(result => {localStorage.setItem('token', result.access)})
+    .then(result => {
+      (result.detail === 'No active account found with the given credentials')
+      ? window.location.reload()
+      : localStorage.setItem('token', result.access)
+    })
     .then(() => this.fetchModels())
   }
 

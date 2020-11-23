@@ -17,11 +17,11 @@ export default class EditProfile extends Component {
         return(
         <div>
             <div className="profile-card">
-                <div class="column">
-                    <div class="ui two column centered grid">
-                        <div class="ui card">
-                            <img class="ui medium circular image" src={this.props.user.picture} alt=""></img>
-                                <div class="content">
+                <div className="column">
+                    <div className="ui two column centered grid">
+                        <div className="ui card">
+                            <img className="ui medium circular image" src={this.props.user.picture} alt=""></img>
+                                <div className="content">
                                 <form className="ui form" onSubmit={this.props.updateProfile}>
                                     <div className="field">
                                         <label>Budget</label>

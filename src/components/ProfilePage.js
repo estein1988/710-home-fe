@@ -25,7 +25,7 @@ export default function ProfilePage({fetchModels, user, favorites, deleteFavorit
         <div>
         <div className="ui large inverted blue secondary pointing menu">
             <div id="avatar-image">
-                <img class="ui mini circular image" src={user.picture} alt=""></img>
+                <img className="ui mini circular image" src={user.picture} alt=""></img>
             </div>
             <div className="header item">
                 {user.username} 
@@ -52,32 +52,32 @@ export default function ProfilePage({fetchModels, user, favorites, deleteFavorit
             </div>
         </div>
         <div className="profile-card">
-            <div class="column">
-                <div class="ui two column centered grid">
-                    <div class="ui card">
-                        <img class="ui medium circular image" src={user.picture} alt=""></img>
-                        <div class="content">
-                            <a class="header">{user.username}</a>
-                            <div class="meta">
-                                <span class="date">{user.email}</span>
+            <div className="column">
+                <div className="ui two column centered grid">
+                    <div className="ui card">
+                        <img className="ui medium circular image" src={user.picture} alt=""></img>
+                        <div className="content">
+                            <a className="header">{user.username}</a>
+                            <div className="meta">
+                                <span className="date">{user.email}</span>
                             </div>
-                            <div class="description">
+                            <div className="description">
                                 {user.name} enjoys {user.hobbies} and is a {user.occupation}.
                             </div>
                         </div>
-                        <div class="extra content">
+                        <div className="extra content">
                             <a>
-                                <i class="star icon"></i>
+                                <i className="star icon"></i>
                                 {favorites.length} favorites
                             </a>
                             {/* <button className="edit-button" onClick={handleClick}>Edit Profile</button> */}
-                            <button id="edit-profile-button" class="ui green button" onClick={handleToggle}>Edit Profile</button>
+                            <button id="edit-profile-button" className="ui green button" onClick={handleToggle}>Edit Profile</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="sixteen wide column">
+        <div className="sixteen wide column">
             <div className="favorites-container">
                 {user.favorites ? renderFavorites() : null}
             </div>

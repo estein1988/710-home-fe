@@ -14,7 +14,7 @@ import clsx from 'clsx';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
 import Modal from '@material-ui/core/Modal';
-var Sentencer = require('sentencer');
+let Sentencer = require('sentencer');
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -99,13 +99,13 @@ export default function HouseCard({home, allHomes, user, clickAction, favorites,
                     title="Contemplative Reptile"
                 />
                 <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
+                <Typography gutterBottom variant="h5" component="h5">
                     {home.line}
                 </Typography>
                 <Typography gutterBottom variant="h6" component="h6">
                     {home.city} - {home.state} - {home.postal_code}
                 </Typography>
-                <Typography variant="body" color="textSecondary" component="p">
+                <Typography variant="body" color="textSecondary" component="body1">
                     A { Sentencer.make( " {{adjective}} " ) } {home.prop_type.replace(/_/g, " ")}. Priced at ${home.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}. {home.beds} beds and {home.baths} baths. {home.size.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} {home.units}. Located in {home.city}'s {home.neighborhood_name} neighborhood.
                     <br></br>
                     <br></br><a href={home.href} target="_blank">Virtual Tour</a>
@@ -134,7 +134,7 @@ export default function HouseCard({home, allHomes, user, clickAction, favorites,
                         {renderUsers()}
                     </div>
                 <div>
-                <button class="ui inverted primary button" onClick={handleOpen}>
+                <button className="ui inverted primary button" onClick={handleOpen}>
                     Additonal Favorite Info.
                 </button>
                 <Modal
@@ -144,8 +144,8 @@ export default function HouseCard({home, allHomes, user, clickAction, favorites,
                     aria-describedby="simple-modal-description"
                 >
                 <div style={modalStyle} className={classes.paper}>
-                <div class="ui yellow message">
-                    <i class="star icon"></i>
+                <div className="ui yellow message">
+                    <i className="star icon"></i>
                         {home.line} favorites:
                     </div>
                         <p id="simple-modal-description">

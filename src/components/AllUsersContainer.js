@@ -18,7 +18,7 @@ class AllUsersContainer extends Component {
             <div>
                 <div className="ui large inverted blue secondary pointing menu">
                     <div id="avatar-image">
-                        <img class="ui mini circular image" src={this.props.user.picture} alt=""></img>
+                        <img className="ui mini circular image" src={this.props.user.picture} alt=""></img>
                     </div>
                     <div className="header item">
                         {this.props.user.username} 
@@ -49,7 +49,7 @@ class AllUsersContainer extends Component {
                     filterUsers={this.props.filterUsers}
                 />
 
-                <div class="fifteen wide column">
+                <div className="fifteen wide column">
                     <div className="user-cards-container">
                         {renderUsers()}
                     </div>

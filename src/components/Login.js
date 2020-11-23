@@ -30,21 +30,21 @@ export default class Login extends Component {
                 <img className="cover-photo" src={coverphoto} alt="" />
             </div>
                 <form className="ui form" onSubmit={this.handleSubmit}>
-                    <div class="four fields">
+                    <div className="four fields">
                         
-                        <div class="field">
+                        <div className="field">
                             <input placeholder='Username' name='username' id='username' value={this.state.username} onChange={this.handleChange} />
                         </div>
 
-                        <div class="field">
+                        <div className="field">
                             <input type="password" placeholder='Password' name='password' id='password' value={this.state.password} onChange={this.handleChange} />
                         </div>
 
-                        <button class="ui primary button" type='submit' id='submit' value='Login'>
+                        <button className="ui primary button" type='submit' id='submit' value='Login'>
                             Login
                         </button>
 
-                        <button class="ui red button">
+                        <button className="ui red button">
                             <Link id="register-button" to='/register'>Register New Account</Link>
                         </button>
                     </div>
