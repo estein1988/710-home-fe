@@ -23,6 +23,7 @@ export default class EditProfile extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
+        this.props.updateProfile(this.state)
     }
 
     handleChange = (event) => {
@@ -40,7 +41,7 @@ export default class EditProfile extends Component {
                         <div className="ui card">
                             <img className="ui medium circular image" src={this.props.user.picture} alt=""></img>
                                 <div className="content">
-                                <form className="ui form" onSubmit={this.props.updateProfile}>
+                                <div className="ui form" onSubmit={this.handleSubmit}>
                                     <div className="field">
                                         <label>Budget</label>
                                         <input type="text" name="budget" value={this.state.budget} onChange={this.handleChange} />
@@ -73,7 +74,7 @@ export default class EditProfile extends Component {
                                         <label>Social Level</label>
                                         <input type="text" name="social_level" value={this.state.social_level} onChange={this.handleChange} />
                                     </div>
-                                </form>
+                                </div>
                                 <input className="ui black button" type="submit" value="Submit Changes"/>
                                 <button className="ui green button" onClick={this.props.handleToggle}>Go Back</button>
                             </div>

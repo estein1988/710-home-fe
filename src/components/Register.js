@@ -58,7 +58,6 @@ class Register extends Component {
         return (
             <div id="register-header">
                 <div className="ui grid">
-                    {/* <div className="four wide column"> */}
                         <div className="register-form">        
                             <div className="ui form" onSubmit={this.handleSubmit}>
                                 <h2>New User Registration:</h2>
@@ -138,12 +137,11 @@ class Register extends Component {
                                         <input type="text" name="picture" value={this.state.picture} onChange={this.handleChange} />
                                     </div>
                                 </div>
-                                <input className="ui huge black button" type="submit" value="Register New User"/>
-                                </div>
-                            </div>
+                            <input className="ui huge black button" type="submit" value="Register New User"/>
                         </div>
                     </div>
-            // </div>
+                </div>
+            </div>
         )
     }
 }

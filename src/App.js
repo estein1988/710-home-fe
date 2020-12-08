@@ -141,6 +141,15 @@ class App extends Component {
   updateProfile = (updatedProfile) => {
     let updateUser = this.state.allUsers.map(user => user.id === updatedProfile.id ? updatedProfile : user)
     this.setState({updateUser})
+
+    fetch(usersURL, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${localStorage.token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({allUsers: updatedProfile})
+    })
   }
 
   login = (user) => {
