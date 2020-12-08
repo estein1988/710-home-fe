@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import registerphoto from './registerphoto.jpg'
 const usersURL = 'https://home-split-7-10.herokuapp.com/users/'
 
 class Register extends Component {
@@ -57,92 +56,94 @@ class Register extends Component {
     
     render() {
         return (
-            <div>
-                <div className='login-picture'>
-                    <img className="cover-photo" src={registerphoto} alt="" />
-                </div>
-                <div id="register-form" className="ui grid">
-                    <div className="four wide column">
-                        <div className="individual-calculator">        
-                            <form className="ui form" onSubmit={this.handleSubmit}>
-                                <h2>Register with 7-10:</h2>
-
-                                <div className="field">
-                                    <label>Username</label>
-                                    <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
+            <div id="register-header">
+                <div className="ui grid">
+                    {/* <div className="four wide column"> */}
+                        <div className="register-form">        
+                            <div className="ui form" onSubmit={this.handleSubmit}>
+                                <h2>New User Registration:</h2>
+                                <div class="fields">
+                                    <div className="eight wide field">
+                                        <label>Username</label>
+                                        <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
+                                    </div>
+                                    <div className="eight wide field">
+                                        <label>Password</label>
+                                        <input type="text" name="password" value={this.state.password} onChange={this.handleChange} />
+                                    </div>
                                 </div>
 
-                                <div className="field">
-                                    <label>Password</label>
-                                    <input type="text" name="password" value={this.state.password} onChange={this.handleChange} />
+                                <div class="fields">
+                                    <div className="eight wide field">
+                                        <label>Email</label>
+                                        <input type="text" name="email" value={this.state.email} onChange={this.handleChange} />
+                                    </div>
+                                    <div className="eight wide field">
+                                        <label>Name</label>
+                                        <input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
+                                    </div>
                                 </div>
 
-                                <div className="field">
-                                    <label>Email</label>
-                                    <input type="text" name="email" value={this.state.email} onChange={this.handleChange} />
+                                <div class="fields">
+                                    <div className="eight wide field">
+                                        <label>Phone Number</label>
+                                        <input type="text" name="phone_number" value={this.state.phone_number} onChange={this.handleChange} />
+                                    </div>
+                                    <div className="eight wide field">
+                                        <label>Social Level</label>
+                                        <input type="text" name="social_level" value={this.state.social_level} onChange={this.handleChange} />
+                                    </div>
                                 </div>
 
-                                <div className="field">
-                                    <label>Name</label>
-                                    <input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
+                                <div class="fields">
+                                    <div className="eight wide field">
+                                        <label>Hobbies</label>
+                                        <input type="text" name="hobbies" value={this.state.hobbies} onChange={this.handleChange} />
+                                    </div>
+                                    <div className="eight wide field">
+                                        <label>Budget</label>
+                                        <input type="text" name="budget" value={this.state.budget} onChange={this.handleChange} />
+                                    </div>
                                 </div>
 
-                                <div className="field">
-                                    <label>Phone Number</label>
-                                    <input type="text" name="phone_number" value={this.state.phone_number} onChange={this.handleChange} />
+                                <div class="fields">
+                                    <div className="eight wide field">
+                                        <label>Current Rent</label>
+                                        <input type="text" name="current_rent" value={this.state.current_rent} onChange={this.handleChange} />
+                                    </div>
+                                    <div className="eight wide field">
+                                        <label>Income</label>
+                                        <input type="text" name="income" value={this.state.income} onChange={this.handleChange} />
+                                    </div>
                                 </div>
 
-                                <div className="field">
-                                    <label>Social Level</label>
-                                    <input type="text" name="social_level" value={this.state.social_level} onChange={this.handleChange} />
+                                <div class="fields">
+                                    <div className="eight wide field">
+                                        <label>Occupation</label>
+                                        <input type="text" name="occupation" value={this.state.occupation} onChange={this.handleChange} />
+                                    </div>
+                                    <div className="eight wide field">
+                                        <label>Lease End</label>
+                                        <input type="text" name="lease_end" value={this.state.lease_end} onChange={this.handleChange} />
+                                    </div>
                                 </div>
 
-                                <div className="field">
-                                    <label>Hobbies</label>
-                                    <input type="text" name="hobbies" value={this.state.hobbies} onChange={this.handleChange} />
+                                <div class="fields">
+                                    <div className="eight wide field">
+                                        <label>Marital Status</label>
+                                        <input type="text" name="marital_status" value={this.state.marital_status} onChange={this.handleChange} />
+                                    </div>
+                                    <div className="eight wide field">
+                                        <label>Picture</label>
+                                        <input type="text" name="picture" value={this.state.picture} onChange={this.handleChange} />
+                                    </div>
                                 </div>
-
-                                <div className="field">
-                                    <label>Budget</label>
-                                    <input type="text" name="budget" value={this.state.budget} onChange={this.handleChange} />
+                                <input className="ui huge black button" type="submit" value="Register New User"/>
                                 </div>
-
-                                <div className="field">
-                                    <label>Current Rent</label>
-                                    <input type="text" name="current_rent" value={this.state.current_rent} onChange={this.handleChange} />
-                                </div>
-
-                                <div className="field">
-                                    <label>Income</label>
-                                    <input type="text" name="income" value={this.state.income} onChange={this.handleChange} />
-                                </div>
-
-                                <div className="field">
-                                    <label>Occupation</label>
-                                    <input type="text" name="occupation" value={this.state.occupation} onChange={this.handleChange} />
-                                </div>
-
-                                <div className="field">
-                                    <label>Lease End</label>
-                                    <input type="text" name="lease_end" value={this.state.lease_end} onChange={this.handleChange} />
-                                </div>
-
-                                <div className="field">
-                                    <label>Marital Status</label>
-                                    <input type="text" name="marital_status" value={this.state.marital_status} onChange={this.handleChange} />
-                                </div>
-
-                                <div className="field">
-                                    <label>Picture</label>
-                                    <input type="text" name="picture" value={this.state.picture} onChange={this.handleChange} />
-                                </div>
-
-                                <input className="ui black button" type="submit" value="Register New User"/>
-                            </form>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+            // </div>
         )
     }
 }

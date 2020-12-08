@@ -108,7 +108,7 @@ export default function HouseCard({home, allHomes, user, clickAction, favorites,
                 <Typography variant="body" color="textSecondary" component="body1">
                     A { Sentencer.make( " {{adjective}} " ) } {home.prop_type.replace(/_/g, " ")}. Priced at ${home.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}. {home.beds} beds and {home.baths} baths. {home.size.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} {home.units}. Located in {home.city}'s {home.neighborhood_name} neighborhood.
                     <br></br>
-                    <br></br><a href={home.href} target="_blank">Virtual Tour</a>
+                    <br></br><a href={home.href} target="_blank"rel="noreferrer">Virtual Tour</a>
                 </Typography>
                 </CardContent>
             </CardActionArea>

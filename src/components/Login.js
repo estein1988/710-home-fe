@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
-import coverphoto from './coverphoto.jpg'
+// import coverphoto from './coverphoto.jpg'
 import 'semantic-ui-css/semantic.min.css'
 
 export default class Login extends Component {
@@ -25,10 +25,11 @@ export default class Login extends Component {
 
     render(){
         return(
+            <div id="header">
             <div className='login-container'>
-            <div className='login-picture'>
+            {/* <div className='login-picture'>
                 <img className="cover-photo" src={coverphoto} alt="" />
-            </div>
+            </div> */}
                 <form className="ui form" onSubmit={this.handleSubmit}>
                     <div className="four fields">
                         
@@ -49,6 +50,7 @@ export default class Login extends Component {
                         </button>
                     </div>
                 </form>
+            </div>
             </div>
         )
     }

@@ -70,7 +70,6 @@ export default function ProfilePage({fetchModels, user, favorites, deleteFavorit
                                 <i className="star icon"></i>
                                 {favorites.length} favorites
                             </a>
-                            {/* <button className="edit-button" onClick={handleClick}>Edit Profile</button> */}
                             <button id="edit-profile-button" className="ui green button" onClick={handleToggle}>Edit Profile</button>
                         </div>
                     </div>

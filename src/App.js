@@ -201,6 +201,7 @@ class App extends Component {
               allHomes={this.state.allHomes} 
               fetchModels={this.fetchModels}
               deleteFavorite={this.deleteFavorite}
+              updateProfile={this.updateProfile}
             />
           </Route>
 
