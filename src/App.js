@@ -142,13 +142,14 @@ class App extends Component {
     let updateUser = this.state.allUsers.map(user => user.id === updatedProfile.id ? updatedProfile : user)
     this.setState({updateUser})
 
-    fetch(usersURL, {
+    fetch(profileURL, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${localStorage.token}`,
+        'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({allUsers: updatedProfile})
+      body: JSON.stringify({user: updatedProfile})
     })
   }
 
@@ -205,6 +206,7 @@ class App extends Component {
 
           <Route path='/user-profile'>
             <ProfilePage 
+              allUsers={this.state.allUsers}
               user={this.state.user}
               favorites={this.state.favorites}
               allHomes={this.state.allHomes} 

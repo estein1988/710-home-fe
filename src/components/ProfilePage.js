@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import EditProfile from './EditProfile'
 import Favorites from './Favorites'
 
-export default function ProfilePage({fetchModels, user, favorites, deleteFavorite, updateProfile, logout}){
+export default function ProfilePage({fetchModels, user, allUsers, favorites, deleteFavorite, updateProfile, logout}){
     
     useEffect(() => {
         fetchModels()
@@ -86,6 +86,7 @@ export default function ProfilePage({fetchModels, user, favorites, deleteFavorit
     return isToggled 
         ? <EditProfile 
                 user={user} 
+                allUsers={allUsers}
                 handleToggle={handleToggle} 
                 updateProfile={updateProfile}
             /> 

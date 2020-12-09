@@ -7,7 +7,7 @@ class Register extends Component {
         user: {},
         username: "",
         password: "",
-        email: "your_name@gmail.com",
+        email: "@gmail.com",
         name: "First Last",
         phone_number: "(303) 555-1234",
         social_level: "Moderate",
@@ -59,9 +59,9 @@ class Register extends Component {
             <div id="register-header">
                 <div className="ui grid">
                         <div className="register-form">        
-                            <div className="ui form" onSubmit={this.handleSubmit}>
+                            <form className="ui form" onSubmit={this.handleSubmit}>
                                 <h2>New User Registration:</h2>
-                                <div class="fields">
+                                <div className="fields">
                                     <div className="eight wide field">
                                         <label>Username</label>
                                         <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
@@ -72,7 +72,7 @@ class Register extends Component {
                                     </div>
                                 </div>
 
-                                <div class="fields">
+                                <div className="fields">
                                     <div className="eight wide field">
                                         <label>Email</label>
                                         <input type="text" name="email" value={this.state.email} onChange={this.handleChange} />
@@ -83,7 +83,7 @@ class Register extends Component {
                                     </div>
                                 </div>
 
-                                <div class="fields">
+                                <div className="fields">
                                     <div className="eight wide field">
                                         <label>Phone Number</label>
                                         <input type="text" name="phone_number" value={this.state.phone_number} onChange={this.handleChange} />
@@ -94,7 +94,7 @@ class Register extends Component {
                                     </div>
                                 </div>
 
-                                <div class="fields">
+                                <div className="fields">
                                     <div className="eight wide field">
                                         <label>Hobbies</label>
                                         <input type="text" name="hobbies" value={this.state.hobbies} onChange={this.handleChange} />
@@ -105,7 +105,7 @@ class Register extends Component {
                                     </div>
                                 </div>
 
-                                <div class="fields">
+                                <div className="fields">
                                     <div className="eight wide field">
                                         <label>Current Rent</label>
                                         <input type="text" name="current_rent" value={this.state.current_rent} onChange={this.handleChange} />
@@ -116,7 +116,7 @@ class Register extends Component {
                                     </div>
                                 </div>
 
-                                <div class="fields">
+                                <div className="fields">
                                     <div className="eight wide field">
                                         <label>Occupation</label>
                                         <input type="text" name="occupation" value={this.state.occupation} onChange={this.handleChange} />
@@ -127,7 +127,7 @@ class Register extends Component {
                                     </div>
                                 </div>
 
-                                <div class="fields">
+                                <div className="fields">
                                     <div className="eight wide field">
                                         <label>Marital Status</label>
                                         <input type="text" name="marital_status" value={this.state.marital_status} onChange={this.handleChange} />
@@ -138,7 +138,7 @@ class Register extends Component {
                                     </div>
                                 </div>
                             <input className="ui huge black button" type="submit" value="Register New User"/>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

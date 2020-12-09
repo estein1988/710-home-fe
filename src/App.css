@@ -5,9 +5,9 @@
 
 #header {
   position: relative;
-  height: 800px;
-  min-height: 500px;
+  height: 100%;
   width: 100%;
+  min-height: 1000px;
   background-size: cover !important;
   -webkit-background-size: cover !important;
   text-align: center;
@@ -21,9 +21,9 @@
 #register-header{
   background: #161415 url('./components/registerphoto.jpg') no-repeat top center;
   position: relative;
-  height: 800px;
-  min-height: 500px;
+  height: 100%;
   width: 100%;
+  min-height: 1000px;
   background-size: cover !important;
   -webkit-background-size: cover !important;
   text-align: center;
@@ -36,7 +36,7 @@
 
 .register-form{
   padding: 1rem;
-  margin: 1.5rem;
+  margin: 2rem;
   border: 2px solid black;
   background-color: whitesmoke;
 }

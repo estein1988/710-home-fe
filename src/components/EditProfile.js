@@ -23,7 +23,7 @@ export default class EditProfile extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.updateProfile(this.state)
+        this.props.updateProfile(this.state.allUsers)
     }
 
     handleChange = (event) => {
