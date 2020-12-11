@@ -40,7 +40,7 @@ class AllUsersContainer extends Component {
                         <Link to='/all-users'>All Users</Link>
                     </div>
                     <div className="header item">
-                        <i className="sign out icon"></i>
+                        <i onClick={this.props.logout} className="sign out icon"></i>
                         <Link to='/login'>Logout</Link>
                     </div>
                 </div>

@@ -19,6 +19,7 @@ class Register extends Component {
         lease_end: "3/1/2021",
         marital_status: "Single",
         picture: "https://www.cheatsheet.com/wp-content/uploads/2019/04/Johns-Avatar.jpg",
+        errorMessage: ''
     }
 
     handleChange = (event) => {
@@ -52,6 +53,10 @@ class Register extends Component {
                 picture: this.state.picture}
             )
         })
+        .then(response => response.status === 400 
+            ? this.setState({errorMessage: 'User already exists; password or email blank'}) 
+            : this.setState({errorMessage: 'User Created Successfully'})
+        )
     }
     
     render() {
@@ -139,6 +144,9 @@ class Register extends Component {
                                 </div>
                             <input className="ui huge black button" type="submit" value="Register New User"/>
                         </form>
+                        <div>
+                            <h3 className={this.state.errorMessage === 'User Created Successfully' ? 'greenMessage' : 'redMessage'} id='registration-message'>{this.state.errorMessage}</h3>
+                        </div>
                     </div>
                 </div>
             </div>

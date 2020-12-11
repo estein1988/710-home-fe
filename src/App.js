@@ -23,7 +23,8 @@ class App extends Component {
     favorites: [],
     allUsers: [],
     filteredHomes: [],
-    filteredUsers: []
+    filteredUsers: [],
+    redirect: false
   }
 
   fetchModels = () => {
@@ -178,11 +179,16 @@ class App extends Component {
     this.setState({ redirect: true });
   }
 
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/login' />
+    }
+  }
+
   render(){
     return (
       <div className="App">
         <Switch>
-
           <PrivateRoute 
             exact path='/' 
             user={this.state.user}
@@ -199,8 +205,8 @@ class App extends Component {
 
           <Route path='/rates'>
             <MortgageRates 
-              logout={this.logout}
               user={this.state.user}
+              logout={this.logout}
             />
           </Route>
 
@@ -213,14 +219,16 @@ class App extends Component {
               fetchModels={this.fetchModels}
               deleteFavorite={this.deleteFavorite}
               updateProfile={this.updateProfile}
+              logout={this.logout}
             />
           </Route>
 
           <Route path='/all-users'>
             <AllUsersContainer
               allUsers={this.state.filteredUsers}
-              filterUsers={this.filterUsers}
               user={this.state.user}
+              filterUsers={this.filterUsers}
+              logout={this.logout}
             />
           </Route>
 
@@ -233,7 +241,6 @@ class App extends Component {
             path='/login' 
             render={(props) => <Login {...props} login={this.login} />} />
           <Route render={() => <Redirect to="/" /> } />
-          
         </Switch>
       </div>
     );

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
-// import coverphoto from './coverphoto.jpg'
 import 'semantic-ui-css/semantic.min.css'
 
 export default class Login extends Component {

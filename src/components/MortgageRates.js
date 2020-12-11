@@ -90,7 +90,6 @@ class MortageRates extends Component {
     }
 
     render() {
-
         const series = [
             { category: 'Homeowners Insurance', value: this.state.calculator.monthly_home_insurance },
             { category: 'Mortage Insurance', value: this.state.calculator.monthly_mortgage_insurance},
@@ -160,7 +159,7 @@ class MortageRates extends Component {
                 </div>
                 <div className="header item">
                     <i onClick={this.props.logout} className="sign out icon"></i>
-                    <p>Logout</p>
+                    <Link to='/login'>Logout</Link>
                 </div>
             </div>
                 
