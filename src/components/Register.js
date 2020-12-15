@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom'
+
 const usersURL = 'https://home-split-7-10.herokuapp.com/users/'
 
 class Register extends Component {
@@ -146,6 +148,11 @@ class Register extends Component {
                         </form>
                         <div>
                             <h3 className={this.state.errorMessage === 'User Created Successfully' ? 'greenMessage' : 'redMessage'} id='registration-message'>{this.state.errorMessage}</h3>
+                        </div>
+                        <div>
+                            <button className="ui massive green button">
+                            <Link id="back-to-login" to='/login'>Back To Login</Link>
+                            </button>
                         </div>
                     </div>
                 </div>

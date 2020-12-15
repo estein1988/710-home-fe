@@ -10,7 +10,7 @@ import '@progress/kendo-theme-default/dist/all.css'
 import 'dotenv'
 import {Link} from 'react-router-dom'
 
-class MortageRates extends Component {
+class MortgageRates extends Component {
 
     state = {
         mortgageRates: [],
@@ -92,14 +92,14 @@ class MortageRates extends Component {
     render() {
         const series = [
             { category: 'Homeowners Insurance', value: this.state.calculator.monthly_home_insurance },
-            { category: 'Mortage Insurance', value: this.state.calculator.monthly_mortgage_insurance},
+            { category: 'Mortgage Insurance', value: this.state.calculator.monthly_mortgage_insurance},
             { category: 'Monthly Property Taxes', value: this.state.calculator.monthly_property_taxes},
             { category: 'Principal and Interest', value: this.state.calculator.principal_and_interest}
         ];
 
         const seriesSplit = [
             { category: 'Homeowners Insurance', value: this.state.calculator_split.monthly_home_insurance},
-            { category: 'Mortage Insurance', value: this.state.calculator_split.monthly_mortgage_insurance},
+            { category: 'Mortgage Insurance', value: this.state.calculator_split.monthly_mortgage_insurance},
             { category: 'Monthly Property Taxes', value: this.state.calculator_split.monthly_property_taxes},
             { category: 'Principal and Interest', value: this.state.calculator_split.principal_and_interest}
         ];
@@ -278,4 +278,4 @@ class MortageRates extends Component {
     }
 }
 
-export default MortageRates;
+export default MortgageRates;

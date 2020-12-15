@@ -6,7 +6,8 @@ export default class Login extends Component {
     
     state = {
         username: '',
-        password: ''
+        password: '',
+        errorMessage: ''
     }
 
     handleSubmit = (event) => {
@@ -26,7 +27,7 @@ export default class Login extends Component {
         return(
             <div id="header">
                 <div className='login-container'>
-                    <form className="ui form" onSubmit={this.handleSubmit}>
+                    <form className="ui huge form" onSubmit={this.handleSubmit}>
                         <div className="four fields">
                             
                             <div className="field">
@@ -37,15 +38,17 @@ export default class Login extends Component {
                                 <input type="password" placeholder='Password' name='password' id='password' value={this.state.password} onChange={this.handleChange} />
                             </div>
 
-                            <button className="ui primary button" type='submit' id='submit' value='Login'>
+                            <button className="ui huge primary button" type='submit' id='submit' value='Login'>
                                 Login
                             </button>
 
-                            <button className="ui red button">
-                                <Link id="register-button" to='/register'>Register New Account</Link>
-                            </button>
                         </div>
                     </form>
+                </div>
+                <div id='new-registration'>
+                    <button className="ui massive red button">
+                        <Link id="register-button" to='/register'>Register a New Account</Link>
+                    </button>
                 </div>
             </div>
         )

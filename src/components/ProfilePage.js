@@ -47,9 +47,8 @@ export default function ProfilePage({fetchModels, user, allUsers, favorites, del
                 <Link to='/all-users'>All Users</Link>
             </div>
             <div className="header item">
-                <i onClick={logout} className="sign out icon"></i>
-                <Link to='/login'></Link>
-                <p>Logout</p>
+                    <i onClick={logout} className="sign out icon"></i>
+                    <Link to='/login'>Logout</Link>
             </div>
         </div>
         <div className="profile-card">

@@ -31,7 +31,7 @@
 }
 
 .login-container {
-  margin: 2rem;
+  margin: 1rem;
 } 
 
 .register-form{
@@ -176,4 +176,13 @@
 
 .greenMessage{
   color: green;
+}
+
+#back-to-login{
+  color: white
+}
+
+#new-registration{
+  display: flex;
+  margin: 0.5rem;
 }
