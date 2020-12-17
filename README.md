@@ -1,6 +1,6 @@
 # 7-10 Home Split
 
-7-10 Home Split is a developed as a full CRUD application to help users connect with each other in the Denver area to purchase a home together. As with many metropolitan areas in the United States Denver real estate prices have continued to skyrocket. Even in 2020, the year of the pandemic and unstable economic conditions, home prices have continued on an upward trajectory. This prices many millennials and Gen-xers out of the market, having them gain little to no equity in the early-stages of their career. This app is intended as a way for them to connect with each other based on liked-budgets and hobbies. 
+7-10 Home Split is developed as a full CRUD application to help users connect with each other to purchase a home together. As with many metropolitan areas in the United States, Denver real estate prices have continued to skyrocket. Even in 2020, the year of the pandemic and unstable economic conditions, home prices have continued on an upward trajectory. This prices many millennials and Gen-xers out of the market, having them gain little to no equity in the early-stages of their career. This app is intended as a way for them to connect with each other based on liked-budgets and hobbies. 
 
 ## Built With
 Frontend: React 17.0.1, Google Maps API, Semantic UI, Material UI<br>
@@ -41,15 +41,14 @@ The user can view their individual profile and make updates if they need to base
 ## Challenges
 - Building a Django backend for the first-time.
 
-- Django JWT with protected end-points.
+- Django password encryption with protected end-points.
 
 - Finding good, reliable real estate data at a low cost. 
 
 ## Future Implementation
 
-- Pay for MLS data so listings can update in real-time. The listings I used were all real from the Realator.com API, but my subscription was only intended to be for a one-time use. I hit the API once, and folded the response into my data. 
-- Develop app a React-native for iPhone use.
-- Deployment is always an option for any of my projects.
+- Pay for MLS data so listings can update in real-time. The listings I used were all real from the Realtor.com API, but my subscription was only intended to be for a one-time use. I hit the API once, and folded the response into my data. 
+- Develop app a React-native for iPhone use. Application is responsive, but not designed for mobile download through an App store.
 
 ## Collaboration
 
