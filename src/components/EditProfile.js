@@ -1,88 +1,104 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import 'semantic-ui-css/semantic.min.css'
 
-export default class EditProfile extends Component {
+export default function EditProfile(props) {
+    const [budget, setBudget] = useState('')
+    const [currentRent, setCurrentRent] = useState('')
+    const [income, setIncome] = useState('')
+    const [occupation, setOccupation] = useState('')
+    const [lease_end, setLeaseEnd] = useState('')
+    const [marital_status, setMaritalStatus] = useState('')
 
-    state = {
-        // user: this.props.state.user,
-        username: this.props.user.username,
-        password: this.props.user.password,
-        email: this.props.user.email,
-        name: this.props.user.name,
-        phone_number: this.props.user.phone_number,
-        social_level: this.props.user.social_level,
-        hobbies: this.props.user.hobbies,
-        budget: this.props.user.budget,
-        current_rent: this.props.user.current_rent,
-        income: this.props.user.income,
-        occupation: this.props.user.occupation,
-        lease_end: this.props.user.lease_end,
-        marital_status: this.props.user.marital_status,
-        picture: this.props.user.picture
-    }
-
-    handleSubmit = (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault()
-        this.props.updateProfile(this.state.allUsers)
+        props.updateProfile(props.user, budget, currentRent, income, occupation, lease_end, marital_status)
+        props.fetchModels()
     }
 
-    handleChange = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-    }
+    return(
+    <div>
+        <div className="profile-card">
+            <div className="column">
+                <div className="ui two column centered grid">
+                    <div className="ui card">
+                        <img className="ui medium circular image" src={props.user.picture} alt=""></img>
+                            <div className="content">
+                                <form className='ui form' onSubmit={handleSubmit}>
 
-    render(){
-        return(
-        <div>
-            <div className="profile-card">
-                <div className="column">
-                    <div className="ui two column centered grid">
-                        <div className="ui card">
-                            <img className="ui medium circular image" src={this.props.user.picture} alt=""></img>
-                                <div className="content">
-                                <div className="ui form" onSubmit={this.handleSubmit}>
                                     <div className="field">
-                                        <label>Budget</label>
-                                        <input type="text" name="budget" value={this.state.budget} onChange={this.handleChange} />
+                                    <label>Budget: {props.user.budget}</label>
+                                        <select onChange={e => setBudget(e.target.value)}>
+                                            <option value={props.user.budget}>{props.user.budget}</option>
+                                            <option value="$299,999">$200,000 - $299,999</option>
+                                            <option value="$399,999">$300,000 - $399,999</option>
+                                            <option value="$499,999">$400,000 - $499,999</option>
+                                            <option value="$599,999">$500,000 - $599,999</option>
+                                            <option value="$699,999">$600,000 - $699,999</option>
+                                            <option value="$799,999">$700,000 - $799,999</option>
+                                            <option value="$899,999">$800,000 - $899,999</option>
+                                            <option value="$999,999">$900,000 - $999,999</option>
+                                            <option value="$2,999,999">$999,999+</option>
+                                        </select>
                                     </div>
+                                    
                                     <div className="field">
-                                        <label>Current Rent</label>
-                                        <input type="text" name="current_rent" value={this.state.current_rent} onChange={this.handleChange} />
+                                    <label>Rent: {props.user.current_rent}</label>
+                                        <select onChange={e => setCurrentRent(e.target.value)}>
+                                            <option value={props.user.current_rent}>{props.user.current_rent}</option>
+                                            <option value="$600 - $699">$600 - $699</option>
+                                            <option value="$700 - $799">$700 - $799</option>
+                                            <option value="$800 - $899">$800 - $899</option>
+                                            <option value="$900 - $999">$900 - $999</option>
+                                            <option value="$1,000 - $1,099">$1,000 - $1,099</option>
+                                            <option value="$1,100 - $1,199">$1,100 - $1,199</option>
+                                            <option value="$1,200 - $1,299">$1,200 - $1,299</option>
+                                            <option value="$1,300 - $1,399">$1,300 - $1,399</option>
+                                            <option value="$1,400 - $1,499">$1,400 - $1,499</option>
+                                            <option value="$1,500+">$1,500+</option>
+                                        </select>
                                     </div>
+
                                     <div className="field">
-                                        <label>Income</label>
-                                        <input type="text" name="income" value={this.state.income} onChange={this.handleChange} />
+                                    <label>Income: {props.user.income}</label>
+                                        <select onChange={e => setIncome(e.target.value)}>
+                                            <option value={props.user.income}>{props.user.income}</option>
+                                            <option value="$30,000 - $59,999">$30,000 - $59,999</option>
+                                            <option value="$60,000 - $99,999">$60,000 - $99,999</option>
+                                            <option value="$100,000 - $149,999">$100,000 - $149,999</option>
+                                            <option value="$150,000+">$150,000+</option>
+                                        </select>
                                     </div>
+
                                     <div className="field">
-                                        <label>Occupation</label>
-                                        <input type="text" name="occupation" value={this.state.occupation} onChange={this.handleChange} />
+                                    <label>Marital Status: {props.user.marital_status}</label>
+                                        <select onChange={e => setMaritalStatus(e.target.value)}>
+                                            <option value={props.user.marital_status}>{props.user.marital_status}</option>
+                                            <option value="Single">Single</option>
+                                            <option value="Married">Married</option>
+                                            <option value="Divorced">Divorced</option>
+                                            <option value="Widowed">Widowed</option>
+                                            <option value="Separated">Separated</option>
+                                        </select>
                                     </div>
-                                    <div className="field">
-                                        <label>Lease-end</label>
-                                        <input type="text" name="lease_end" value={this.state.lease_end} onChange={this.handleChange} />
+
+                                    <div className='field'>
+                                        <label>Occupation: {props.user.occupation}</label>
+                                        <input type='text' name='occupation' value={occupation} onChange={e => setOccupation(e.target.value)} />
                                     </div>
-                                    <div className="field">
-                                        <label>Marital Status</label>
-                                        <input type="text" name="marital_status" value={this.state.marital_status} onChange={this.handleChange} />
+
+                                    <div className='field'>
+                                        <label>Lease End Date: {props.user.lease_end}</label>
+                                        <input type='text' name='leaseEnd' value={lease_end} onChange={e => setLeaseEnd(e.target.value)} />
                                     </div>
-                                    <div className="field">
-                                        <label>Hobbies</label>
-                                        <input type="text" name="hobbies" value={this.state.hobbies} onChange={this.handleChange} />
-                                    </div>
-                                    <div className="field">
-                                        <label>Social Level</label>
-                                        <input type="text" name="social_level" value={this.state.social_level} onChange={this.handleChange} />
-                                    </div>
-                                </div>
-                                <input className="ui black button" type="submit" value="Submit Changes"/>
-                                <button className="ui green button" onClick={this.props.handleToggle}>Go Back</button>
+
+                                    <input className='ui black button' type='submit' id='submit' value='Submit' />
+                                    <button className='ui green button' onClick={props.handleToggle}>Go Back</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        )
-    }
+    )
 }

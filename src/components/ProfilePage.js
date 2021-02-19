@@ -89,6 +89,7 @@ export default function ProfilePage({fetchModels, user, allUsers, favorites, del
                 allUsers={allUsers}
                 handleToggle={handleToggle} 
                 updateProfile={updateProfile}
+                fetchModels={fetchModels}
             /> 
         : profileCard()
 }

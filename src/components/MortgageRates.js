@@ -242,7 +242,7 @@ class MortgageRates extends Component {
                             </form>
                         </div>
                         <h3 className='chartHeader'>Monthly Payment 710 Split: ${this.state.calculator_split.monthly_payment / 2 }</h3>
-                        <h3 className='chartHeader'>Suggested Income: ${this.state.calculator_split.monthly_payment * 12 * 3.5}</h3>
+                        <h3 className='chartHeader'>Suggested Income: ${(this.state.calculator_split.monthly_payment / 2) * 12 * 3.5}</h3>
                     </div> 
 
                     <div className="nine wide column">

@@ -139,19 +139,20 @@ class App extends Component {
     this.setState({filteredUsers: filterUsers})
   }
 
-  updateProfile = (updatedProfile) => {
-    let updateUser = this.state.allUsers.map(user => user.id === updatedProfile.id ? updatedProfile : user)
-    this.setState({updateUser})
-
-    fetch(profileURL, {
-      method: 'PUT',
-      headers: {
-        'Authorization': `Bearer ${localStorage.token}`,
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({user: updatedProfile})
-    })
+  updateProfile = (profile, budget, currentRent, income, occupation, lease_end, marital_status) => {
+    const newProfile = this.state.allUsers.filter(newProfile => newProfile !== profile)
+    this.setState({user: newProfile})
+      fetch(`https://home-split-7-10.herokuapp.com/users/${this.state.user.id}/`, {
+          method: "PATCH",
+          headers: {
+            'Authorization': `Bearer ${localStorage.token}`,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(
+            {budget: budget, current_rent: currentRent, income: income, occupation: occupation, lease_end: lease_end, marital_status: marital_status}
+          )
+        })
   }
 
   login = (user) => {
