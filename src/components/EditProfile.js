@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import 'semantic-ui-css/semantic.min.css'
 
-export default function EditProfile(props) {
+export default function EditProfile({user, updateProfile, fetchModels, handleToggle}) {
     const [budget, setBudget] = useState('')
     const [currentRent, setCurrentRent] = useState('')
     const [income, setIncome] = useState('')
@@ -11,8 +11,8 @@ export default function EditProfile(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        props.updateProfile(props.user, budget, currentRent, income, occupation, lease_end, marital_status)
-        props.fetchModels()
+        updateProfile(user, budget, currentRent, income, occupation, lease_end, marital_status)
+        fetchModels()
     }
 
     return(
@@ -21,14 +21,14 @@ export default function EditProfile(props) {
             <div className="column">
                 <div className="ui two column centered grid">
                     <div className="ui card">
-                        <img className="ui medium circular image" src={props.user.picture} alt=""></img>
+                        <img className="ui medium circular image" src={user.picture} alt=""></img>
                             <div className="content">
                                 <form className='ui form' onSubmit={handleSubmit}>
 
                                     <div className="field">
-                                    <label>Budget: {props.user.budget}</label>
+                                    <label>Budget: {user.budget}</label>
                                         <select onChange={e => setBudget(e.target.value)}>
-                                            <option value={props.user.budget}>{props.user.budget}</option>
+                                            <option value=''>Edit Budget</option>
                                             <option value="$299,999">$200,000 - $299,999</option>
                                             <option value="$399,999">$300,000 - $399,999</option>
                                             <option value="$499,999">$400,000 - $499,999</option>
@@ -42,9 +42,9 @@ export default function EditProfile(props) {
                                     </div>
                                     
                                     <div className="field">
-                                    <label>Rent: {props.user.current_rent}</label>
+                                    <label>Rent: {user.current_rent}</label>
                                         <select onChange={e => setCurrentRent(e.target.value)}>
-                                            <option value={props.user.current_rent}>{props.user.current_rent}</option>
+                                            <option value=''>Edit Rent</option>
                                             <option value="$600 - $699">$600 - $699</option>
                                             <option value="$700 - $799">$700 - $799</option>
                                             <option value="$800 - $899">$800 - $899</option>
@@ -59,9 +59,9 @@ export default function EditProfile(props) {
                                     </div>
 
                                     <div className="field">
-                                    <label>Income: {props.user.income}</label>
+                                    <label>Income: {user.income}</label>
                                         <select onChange={e => setIncome(e.target.value)}>
-                                            <option value={props.user.income}>{props.user.income}</option>
+                                            <option value=''>Edit Income</option>
                                             <option value="$30,000 - $59,999">$30,000 - $59,999</option>
                                             <option value="$60,000 - $99,999">$60,000 - $99,999</option>
                                             <option value="$100,000 - $149,999">$100,000 - $149,999</option>
@@ -70,9 +70,9 @@ export default function EditProfile(props) {
                                     </div>
 
                                     <div className="field">
-                                    <label>Marital Status: {props.user.marital_status}</label>
+                                    <label>Marital Status: {user.marital_status}</label>
                                         <select onChange={e => setMaritalStatus(e.target.value)}>
-                                            <option value={props.user.marital_status}>{props.user.marital_status}</option>
+                                            <option value=''>Edit Marital Status</option>
                                             <option value="Single">Single</option>
                                             <option value="Married">Married</option>
                                             <option value="Divorced">Divorced</option>
@@ -82,17 +82,17 @@ export default function EditProfile(props) {
                                     </div>
 
                                     <div className='field'>
-                                        <label>Occupation: {props.user.occupation}</label>
+                                        <label>Occupation: {user.occupation}</label>
                                         <input type='text' name='occupation' value={occupation} onChange={e => setOccupation(e.target.value)} />
                                     </div>
 
                                     <div className='field'>
-                                        <label>Lease End Date: {props.user.lease_end}</label>
+                                        <label>Lease End Date: {user.lease_end}</label>
                                         <input type='text' name='leaseEnd' value={lease_end} onChange={e => setLeaseEnd(e.target.value)} />
                                     </div>
 
                                     <input className='ui black button' type='submit' id='submit' value='Submit' />
-                                    <button className='ui green button' onClick={props.handleToggle}>Go Back</button>
+                                    <button className='ui green button' onClick={handleToggle}>Go Back</button>
                                 </form>
                             </div>
                         </div>

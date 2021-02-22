@@ -121,6 +121,38 @@ class App extends Component {
       })
   }
 
+  updateProfile = (profile, budget, currentRent, income, occupation, lease_end, marital_status) => {
+    const newProfile = this.state.allUsers.filter(newProfile => newProfile !== profile)
+    this.setState({user: newProfile})
+    this.setState({allUsers: newProfile})
+      fetch(`https://home-split-7-10.herokuapp.com/users/${this.state.user.id}/`, {
+          method: "PATCH",
+          headers: {
+            'Authorization': `Bearer ${localStorage.token}`,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ 
+            budget: budget, 
+            current_rent: currentRent, 
+            income: income, 
+            occupation: occupation, 
+            lease_end: lease_end, 
+            marital_status: marital_status
+          })
+        })
+        .then(response => response.json())
+        .then(result => 
+          (Object.keys(result).length > 10)
+          ? alert('Profile update successfully')
+          : alert(Object.keys(result).map(error => {
+              const fullMessage = error.replace(/_/g, ' ') + ' may not be blank.\n'
+              const stringMessage = fullMessage[0].toUpperCase() + fullMessage.slice(1)
+              return stringMessage
+            }))
+        )
+  }
+  
   filterListings = (event) => {
     const input = event.target.value
     const filterListings = this.state.allHomes
@@ -139,21 +171,6 @@ class App extends Component {
     this.setState({filteredUsers: filterUsers})
   }
 
-  updateProfile = (profile, budget, currentRent, income, occupation, lease_end, marital_status) => {
-    const newProfile = this.state.allUsers.filter(newProfile => newProfile !== profile)
-    this.setState({user: newProfile})
-      fetch(`https://home-split-7-10.herokuapp.com/users/${this.state.user.id}/`, {
-          method: "PATCH",
-          headers: {
-            'Authorization': `Bearer ${localStorage.token}`,
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(
-            {budget: budget, current_rent: currentRent, income: income, occupation: occupation, lease_end: lease_end, marital_status: marital_status}
-          )
-        })
-  }
 
   login = (user) => {
     return fetch(loginURL, {
